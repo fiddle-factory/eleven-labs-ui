@@ -12,11 +12,11 @@ class SoundManager {
 
   private loadSounds() {
     const soundFiles: Record<SoundType, string> = {
-      paddleHit: "/sounds/pong/paddle_hit.mp3",
-      wallHit: "/sounds/pong/wall_hit.mp3",
-      score: "/sounds/pong/score.mp3",
-      gameStart: "/sounds/pong/game_start.mp3",
-      win: "/sounds/pong/win.mp3",
+      paddleHit: "https://ui.elevenlabs.io/sounds/pong/paddle_hit.mp3",
+      wallHit: "https://ui.elevenlabs.io/sounds/pong/wall_hit.mp3",
+      score: "https://ui.elevenlabs.io/sounds/pong/score.mp3",
+      gameStart: "https://ui.elevenlabs.io/sounds/pong/game_start.mp3",
+      win: "https://ui.elevenlabs.io/sounds/pong/win.mp3",
     }
 
     for (const [key, path] of Object.entries(soundFiles)) {

@@ -471,26 +471,6 @@ export const Index: Record<string, any> = {
       path: "registry/elevenlabs-ui/blocks/pong-01/actions.ts",
       type: "registry:file",
       target: "actions/pong-actions.ts"
-    },{
-      path: "registry/elevenlabs-ui/blocks/pong-01/components/sounds/game_start.mp3",
-      type: "registry:file",
-      target: "public/sounds/pong/game_start.mp3"
-    },{
-      path: "registry/elevenlabs-ui/blocks/pong-01/components/sounds/paddle_hit.mp3",
-      type: "registry:file",
-      target: "public/sounds/pong/paddle_hit.mp3"
-    },{
-      path: "registry/elevenlabs-ui/blocks/pong-01/components/sounds/score.mp3",
-      type: "registry:file",
-      target: "public/sounds/pong/score.mp3"
-    },{
-      path: "registry/elevenlabs-ui/blocks/pong-01/components/sounds/wall_hit.mp3",
-      type: "registry:file",
-      target: "public/sounds/pong/wall_hit.mp3"
-    },{
-      path: "registry/elevenlabs-ui/blocks/pong-01/components/sounds/win.mp3",
-      type: "registry:file",
-      target: "public/sounds/pong/win.mp3"
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/elevenlabs-ui/blocks/pong-01/page.tsx")

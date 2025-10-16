@@ -1,13 +1,9 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalEnv": [
-    "NODE_ENV"
-  ],
+  "globalEnv": ["NODE_ENV"],
   "tasks": {
     "build": {
-      "dependsOn": [
-        "^build"
-      ],
+      "dependsOn": ["^build"],
       "env": [
         "NEXT_PUBLIC_APP_URL",
         "UPSTASH_REDIS_REST_URL",
@@ -18,26 +14,22 @@
         "https_proxy",
         "V0_URL",
         "V0_EDIT_SECRET",
-        "DEPLOYMENT_PROTECTION_BYPASS"
+        "DEPLOYMENT_PROTECTION_BYPASS",
+        "ELEVENLABS_API_KEY",
+        "KV_URL",
+        "KV_REST_API_READ_ONLY_TOKEN",
+        "REDIS_URL",
+        "KV_REST_API_TOKEN",
+        "KV_REST_API_URL"
       ],
-      "outputs": [
-        "dist/**",
-        ".next/**"
-      ]
+      "outputs": ["dist/**", ".next/**"]
     },
     "preview": {
-      "env": [
-        "NEXT_PUBLIC_APP_URL"
-      ],
-      "outputs": [
-        "dist/**",
-        ".next/**"
-      ]
+      "env": ["NEXT_PUBLIC_APP_URL"],
+      "outputs": ["dist/**", ".next/**"]
     },
     "start": {
-      "dependsOn": [
-        "^build"
-      ]
+      "dependsOn": ["^build"]
     },
     "lint": {
       "cache": false,

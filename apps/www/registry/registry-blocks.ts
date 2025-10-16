@@ -302,31 +302,6 @@ export const blocks: Registry["items"] = [
         type: "registry:file",
         target: "actions/pong-actions.ts",
       },
-      {
-        path: "blocks/pong-01/components/sounds/game_start.mp3",
-        type: "registry:file",
-        target: "public/sounds/pong/game_start.mp3",
-      },
-      {
-        path: "blocks/pong-01/components/sounds/paddle_hit.mp3",
-        type: "registry:file",
-        target: "public/sounds/pong/paddle_hit.mp3",
-      },
-      {
-        path: "blocks/pong-01/components/sounds/score.mp3",
-        type: "registry:file",
-        target: "public/sounds/pong/score.mp3",
-      },
-      {
-        path: "blocks/pong-01/components/sounds/wall_hit.mp3",
-        type: "registry:file",
-        target: "public/sounds/pong/wall_hit.mp3",
-      },
-      {
-        path: "blocks/pong-01/components/sounds/win.mp3",
-        type: "registry:file",
-        target: "public/sounds/pong/win.mp3",
-      },
     ],
     meta: {
       iframeHeight: "700px",
