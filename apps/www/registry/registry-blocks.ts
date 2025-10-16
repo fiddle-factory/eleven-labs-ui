@@ -265,4 +265,75 @@ export const blocks: Registry["items"] = [
     },
     categories: ["audio"],
   },
+  {
+    name: "pong-01",
+    description: "Retro Pong game with Matrix display",
+    type: "registry:block",
+    registryDependencies: ["https://ui.elevenlabs.io/r/matrix.json", "card"],
+    dependencies: ["@upstash/redis"],
+    files: [
+      {
+        path: "blocks/pong-01/page.tsx",
+        type: "registry:page",
+        target: "app/pong/page.tsx",
+      },
+      {
+        path: "blocks/pong-01/components/pong-game.tsx",
+        type: "registry:component",
+        target: "components/pong-game.tsx",
+      },
+      {
+        path: "blocks/pong-01/components/player-indicator.tsx",
+        type: "registry:component",
+        target: "components/player-indicator.tsx",
+      },
+      {
+        path: "blocks/pong-01/components/game-engine.ts",
+        type: "registry:file",
+        target: "lib/game-engine.ts",
+      },
+      {
+        path: "blocks/pong-01/components/sound-manager.ts",
+        type: "registry:file",
+        target: "lib/sound-manager.ts",
+      },
+      {
+        path: "blocks/pong-01/actions.ts",
+        type: "registry:file",
+        target: "actions/pong-actions.ts",
+      },
+      {
+        path: "blocks/pong-01/components/sounds/game_start.mp3",
+        type: "registry:file",
+        target: "public/sounds/pong/game_start.mp3",
+      },
+      {
+        path: "blocks/pong-01/components/sounds/paddle_hit.mp3",
+        type: "registry:file",
+        target: "public/sounds/pong/paddle_hit.mp3",
+      },
+      {
+        path: "blocks/pong-01/components/sounds/score.mp3",
+        type: "registry:file",
+        target: "public/sounds/pong/score.mp3",
+      },
+      {
+        path: "blocks/pong-01/components/sounds/wall_hit.mp3",
+        type: "registry:file",
+        target: "public/sounds/pong/wall_hit.mp3",
+      },
+      {
+        path: "blocks/pong-01/components/sounds/win.mp3",
+        type: "registry:file",
+        target: "public/sounds/pong/win.mp3",
+      },
+    ],
+    meta: {
+      iframeHeight: "700px",
+      container:
+        "w-full bg-surface min-h-svh flex px-4 py-12 items-center md:py-20 justify-center min-w-0",
+      mobile: "component",
+    },
+    categories: ["audio"],
+  },
 ]

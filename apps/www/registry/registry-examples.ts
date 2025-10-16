@@ -68,6 +68,17 @@ export const examples: Registry["items"] = [
     ],
   },
   {
+    name: "matrix-demo",
+    type: "registry:example",
+    registryDependencies: ["https://ui.elevenlabs.io/r/matrix.json"],
+    files: [
+      {
+        path: "examples/matrix-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "message-demo",
     type: "registry:example",
     registryDependencies: [

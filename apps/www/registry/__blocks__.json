@@ -43,5 +43,10 @@
     "name": "voice-nav-01",
     "description": "Voice-nav site navigation",
     "categories": ["audio"]
+  },
+  {
+    "name": "pong-01",
+    "description": "Retro Pong game with Matrix display",
+    "categories": ["audio"]
   }
 ]

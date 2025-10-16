@@ -1,6 +1,7 @@
 import { Metadata } from "next"
 import Link from "next/link"
 
+import { Announcement } from "@/components/announcement-1"
 import { BlocksNav } from "@/components/blocks-nav"
 import {
   PageActions,
@@ -47,6 +48,7 @@ export default function BlocksLayout({
   return (
     <>
       <PageHeader>
+        <Announcement />
         <PageHeaderHeading>{title}</PageHeaderHeading>
         <PageHeaderDescription>{description}</PageHeaderDescription>
         <PageActions>

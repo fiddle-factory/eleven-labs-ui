@@ -10,10 +10,10 @@ import {
 export function Announcement() {
   return (
     <AnnouncementBase asChild>
-      <Link href="/docs/components/matrix">
-        <AnnouncementTag>New</AnnouncementTag>
+      <Link href="/blocks#pong-01">
+        <AnnouncementTag>New Example</AnnouncementTag>
         <AnnouncementTitle>
-          Matrix, Mic Selector and more <ArrowRightIcon className="size-3" />
+          Pong game with Matrix display <ArrowRightIcon className="size-3" />
         </AnnouncementTitle>
       </Link>
     </AnnouncementBase>

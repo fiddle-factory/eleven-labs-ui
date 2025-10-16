@@ -106,6 +106,16 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "matrix",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/matrix.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "voice-picker",
     type: "registry:ui",
     dependencies: ["@elevenlabs/elevenlabs-js"],
