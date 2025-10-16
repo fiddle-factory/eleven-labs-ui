@@ -8,6 +8,7 @@ component: true
 <ComponentPreview
   name="matrix-demo"
   description="An interactive matrix display with smooth animations and unified patterns."
+  hideCode={true}
 />
 
 ## Installation
@@ -139,9 +140,9 @@ The component comes with several built-in presets and animations:
 7-segment style digits (0-9) on a 7×5 grid.
 
 ```tsx
-import { digits } from "@/components/ui/matrix"
+import { digits, Matrix } from "@/components/ui/matrix"
 
-;<Matrix rows={7} cols={5} pattern={digits[5]} />
+export default () => <Matrix rows={7} cols={5} pattern={digits[5]} />
 ```
 
 ### loader
@@ -149,9 +150,9 @@ import { digits } from "@/components/ui/matrix"
 Rotating spinner animation (7×7, 12 frames).
 
 ```tsx
-import { loader } from "@/components/ui/matrix"
+import { loader, Matrix } from "@/components/ui/matrix"
 
-;<Matrix rows={7} cols={7} frames={loader} fps={12} />
+export default () => <Matrix rows={7} cols={7} frames={loader} fps={12} />
 ```
 
 ### pulse
@@ -159,9 +160,9 @@ import { loader } from "@/components/ui/matrix"
 Expanding pulse effect (7×7, 16 frames).
 
 ```tsx
-import { pulse } from "@/components/ui/matrix"
+import { Matrix, pulse } from "@/components/ui/matrix"
 
-;<Matrix rows={7} cols={7} frames={pulse} fps={16} />
+export default () => <Matrix rows={7} cols={7} frames={pulse} fps={16} />
 ```
 
 ### wave
@@ -169,9 +170,9 @@ import { pulse } from "@/components/ui/matrix"
 Smooth sine wave animation (7×7, 24 frames).
 
 ```tsx
-import { wave } from "@/components/ui/matrix"
+import { Matrix, wave } from "@/components/ui/matrix"
 
-;<Matrix rows={7} cols={7} frames={wave} fps={20} />
+export default () => <Matrix rows={7} cols={7} frames={wave} fps={20} />
 ```
 
 ### snake
@@ -179,9 +180,9 @@ import { wave } from "@/components/ui/matrix"
 Snake traversal pattern (7×7, ~40 frames).
 
 ```tsx
-import { snake } from "@/components/ui/matrix"
+import { Matrix, snake } from "@/components/ui/matrix"
 
-;<Matrix rows={7} cols={7} frames={snake} fps={15} />
+export default () => <Matrix rows={7} cols={7} frames={snake} fps={15} />
 ```
 
 ### chevronLeft / chevronRight
@@ -189,9 +190,9 @@ import { snake } from "@/components/ui/matrix"
 Simple directional arrows (5×5).
 
 ```tsx
-import { chevronLeft, chevronRight } from "@/components/ui/matrix"
+import { chevronLeft, Matrix } from "@/components/ui/matrix"
 
-;<Matrix rows={5} cols={5} pattern={chevronLeft} />
+export default () => <Matrix rows={5} cols={5} pattern={chevronLeft} />
 ```
 
 ### vu()
@@ -199,10 +200,12 @@ import { chevronLeft, chevronRight } from "@/components/ui/matrix"
 Helper function to create VU meter frames.
 
 ```tsx
-import { vu } from "@/components/ui/matrix"
+import { Matrix, vu } from "@/components/ui/matrix"
 
-const levels = [0.3, 0.6, 0.9, 0.7, 0.5]
-<Matrix rows={7} cols={5} pattern={vu(5, levels)} />
+export default () => {
+  const levels = [0.3, 0.6, 0.9, 0.7, 0.5]
+  return <Matrix rows={7} cols={5} pattern={vu(5, levels)} />
+}
 ```
 
 ## Examples

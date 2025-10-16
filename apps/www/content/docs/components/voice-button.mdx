@@ -79,30 +79,26 @@ const [state, setState] = useState<"idle" | "recording" | "processing">("idle")
 ### Different States
 
 ```tsx showLineNumbers
-{
-  /* Idle state */
-}
-;<VoiceButton state="idle" />
+import { VoiceButton } from "@/components/ui/voice-button"
 
-{
-  /* Recording with waveform */
-}
-;<VoiceButton state="recording" />
+export default () => (
+  <>
+    {/* Idle state */}
+    <VoiceButton state="idle" />
 
-{
-  /* Processing */
-}
-;<VoiceButton state="processing" />
+    {/* Recording with waveform */}
+    <VoiceButton state="recording" />
 
-{
-  /* Success feedback */
-}
-;<VoiceButton state="success" />
+    {/* Processing */}
+    <VoiceButton state="processing" />
 
-{
-  /* Error feedback */
-}
-;<VoiceButton state="error" />
+    {/* Success feedback */}
+    <VoiceButton state="success" />
+
+    {/* Error feedback */}
+    <VoiceButton state="error" />
+  </>
+)
 ```
 
 ### Icon Button
@@ -110,7 +106,9 @@ const [state, setState] = useState<"idle" | "recording" | "processing">("idle")
 ```tsx showLineNumbers
 import { MicIcon } from "lucide-react"
 
-;<VoiceButton state="idle" size="icon" icon={<MicIcon />} />
+import { VoiceButton } from "@/components/ui/voice-button"
+
+export default () => <VoiceButton state="idle" size="icon" icon={<MicIcon />} />
 ```
 
 ### Custom Styling
@@ -128,22 +126,31 @@ import { MicIcon } from "lucide-react"
 ### Auto-transitioning States
 
 ```tsx showLineNumbers
-const [state, setState] = useState<VoiceButtonState>("idle")
+import { useState } from "react"
 
-const handlePress = () => {
-  if (state === "idle") {
-    setState("recording")
-  } else if (state === "recording") {
-    setState("processing")
-    // Simulate API call
-    setTimeout(() => {
-      setState("success")
-      // Auto-return to idle after feedback
-    }, 2000)
+import {
+  VoiceButton,
+  type VoiceButtonState,
+} from "@/components/ui/voice-button"
+
+export default () => {
+  const [state, setState] = useState<VoiceButtonState>("idle")
+
+  const handlePress = () => {
+    if (state === "idle") {
+      setState("recording")
+    } else if (state === "recording") {
+      setState("processing")
+      // Simulate API call
+      setTimeout(() => {
+        setState("success")
+        // Auto-return to idle after feedback
+      }, 2000)
+    }
   }
-}
 
-;<VoiceButton state={state} onPress={handlePress} />
+  return <VoiceButton state={state} onPress={handlePress} />
+}
 ```
 
 ## API Reference

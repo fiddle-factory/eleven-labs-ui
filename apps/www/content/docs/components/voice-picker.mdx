@@ -81,22 +81,24 @@ const [selectedVoice, setSelectedVoice] = useState("")
 ### Controlled vs Uncontrolled
 
 ```tsx showLineNumbers
-{
-  /* Controlled */
-}
-;<VoicePicker
-  voices={voices}
-  value={selectedVoice}
-  onValueChange={setSelectedVoice}
-/>
+import { VoicePicker } from "@/components/ui/voice-picker"
 
-{
-  /* Uncontrolled */
-}
-;<VoicePicker
-  voices={voices}
-  onValueChange={(voiceId) => console.log("Selected:", voiceId)}
-/>
+export default ({ voices, selectedVoice, setSelectedVoice }) => (
+  <>
+    {/* Controlled */}
+    <VoicePicker
+      voices={voices}
+      value={selectedVoice}
+      onValueChange={setSelectedVoice}
+    />
+
+    {/* Uncontrolled */}
+    <VoicePicker
+      voices={voices}
+      onValueChange={(voiceId) => console.log("Selected:", voiceId)}
+    />
+  </>
+)
 ```
 
 ### Control Open State

@@ -189,6 +189,22 @@
       ]
     },
     {
+      "name": "mic-selector",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "button",
+        "card",
+        "dropdown-menu",
+        "https://ui.elevenlabs.io/r/live-waveform.json"
+      ],
+      "files": [
+        {
+          "path": "registry/elevenlabs-ui/ui/mic-selector.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "speaker-01",
       "type": "registry:block",
       "description": "EL-01 Speaker",
@@ -650,6 +666,23 @@
       "files": [
         {
           "path": "registry/elevenlabs-ui/examples/conversation-bar-demo.tsx",
+          "type": "registry:example"
+        }
+      ]
+    },
+    {
+      "name": "mic-selector-demo",
+      "type": "registry:example",
+      "registryDependencies": [
+        "https://ui.elevenlabs.io/r/mic-selector.json",
+        "https://ui.elevenlabs.io/r/live-waveform.json",
+        "button",
+        "card",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "registry/elevenlabs-ui/examples/mic-selector-demo.tsx",
           "type": "registry:example"
         }
       ]

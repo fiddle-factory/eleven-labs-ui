@@ -104,12 +104,14 @@ return <Response>{response}</Response>
 import { Message, MessageAvatar, MessageContent } from "@/components/ui/message"
 import { Response } from "@/components/ui/response"
 
-;<Message from="assistant">
-  <MessageAvatar src="/ai-avatar.jpg" name="AI" />
-  <MessageContent>
-    <Response>{streamingResponse}</Response>
-  </MessageContent>
-</Message>
+export default ({ streamingResponse }) => (
+  <Message from="assistant">
+    <MessageAvatar src="/ai-avatar.jpg" name="AI" />
+    <MessageContent>
+      <Response>{streamingResponse}</Response>
+    </MessageContent>
+  </Message>
+)
 ```
 
 ## API Reference

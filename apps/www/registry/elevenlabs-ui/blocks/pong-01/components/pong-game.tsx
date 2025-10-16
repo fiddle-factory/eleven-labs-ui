@@ -2,11 +2,12 @@
 
 import { useEffect, useRef, useState } from "react"
 
-import { Card } from "@/registry/elevenlabs-ui/ui/card"
+import {
+  GameEngine,
+  type GameState,
+} from "@/registry/elevenlabs-ui/blocks/pong-01/components/game-engine"
+import { PlayerIndicator } from "@/registry/elevenlabs-ui/blocks/pong-01/components/player-indicator"
 import { digits, Matrix, type Frame } from "@/registry/elevenlabs-ui/ui/matrix"
-
-import { GameEngine, type GameState } from "./game-engine"
-import { PlayerIndicator } from "./player-indicator"
 
 export function PongGame() {
   const [gameState, setGameState] = useState<GameState>("title")

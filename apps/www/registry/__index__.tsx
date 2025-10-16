@@ -260,6 +260,24 @@ export const Index: Record<string, any> = {
     categories: undefined,
     meta: undefined,
   },
+  "mic-selector": {
+    name: "mic-selector",
+    description: "",
+    type: "registry:ui",
+    registryDependencies: ["button","card","dropdown-menu","https://ui.elevenlabs.io/r/live-waveform.json"],
+    files: [{
+      path: "registry/elevenlabs-ui/ui/mic-selector.tsx",
+      type: "registry:ui",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/elevenlabs-ui/ui/mic-selector.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
   "speaker-01": {
     name: "speaker-01",
     description: "EL-01 Speaker",
@@ -708,6 +726,24 @@ export const Index: Record<string, any> = {
     }],
     component: React.lazy(async () => {
       const mod = await import("@/registry/elevenlabs-ui/examples/conversation-bar-demo.tsx")
+      const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
+      return { default: mod.default || mod[exportName] }
+    }),
+    categories: undefined,
+    meta: undefined,
+  },
+  "mic-selector-demo": {
+    name: "mic-selector-demo",
+    description: "",
+    type: "registry:example",
+    registryDependencies: ["https://ui.elevenlabs.io/r/mic-selector.json","https://ui.elevenlabs.io/r/live-waveform.json","button","card","separator"],
+    files: [{
+      path: "registry/elevenlabs-ui/examples/mic-selector-demo.tsx",
+      type: "registry:example",
+      target: ""
+    }],
+    component: React.lazy(async () => {
+      const mod = await import("@/registry/elevenlabs-ui/examples/mic-selector-demo.tsx")
       const exportName = Object.keys(mod).find(key => typeof mod[key] === 'function' || typeof mod[key] === 'object') || item.name
       return { default: mod.default || mod[exportName] }
     }),

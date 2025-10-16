@@ -68,25 +68,27 @@ import { Message, MessageAvatar, MessageContent } from "@/components/ui/message"
 The `MessageContent` component supports two variants:
 
 ```tsx showLineNumbers
-{
-  /* Contained variant - default, has background and padding */
-}
-;<Message from="user">
-  <MessageAvatar src="/user-avatar.jpg" />
-  <MessageContent variant="contained">
-    This is a contained message with background
-  </MessageContent>
-</Message>
+import { Message, MessageAvatar, MessageContent } from "@/components/ui/message"
 
-{
-  /* Flat variant - no background for assistant, minimal styling */
-}
-;<Message from="assistant">
-  <MessageAvatar src="/assistant-avatar.jpg" />
-  <MessageContent variant="flat">
-    This is a flat message with minimal styling
-  </MessageContent>
-</Message>
+export default () => (
+  <>
+    {/* Contained variant - default, has background and padding */}
+    <Message from="user">
+      <MessageAvatar src="/user-avatar.jpg" />
+      <MessageContent variant="contained">
+        This is a contained message with background
+      </MessageContent>
+    </Message>
+
+    {/* Flat variant - no background for assistant, minimal styling */}
+    <Message from="assistant">
+      <MessageAvatar src="/assistant-avatar.jpg" />
+      <MessageContent variant="flat">
+        This is a flat message with minimal styling
+      </MessageContent>
+    </Message>
+  </>
+)
 ```
 
 ### In a Conversation
@@ -95,16 +97,18 @@ The `MessageContent` component supports two variants:
 import { Conversation, ConversationContent } from "@/components/ui/conversation"
 import { Message, MessageAvatar, MessageContent } from "@/components/ui/message"
 
-;<Conversation>
-  <ConversationContent>
-    {messages.map((message) => (
-      <Message key={message.id} from={message.from}>
-        <MessageAvatar src={message.avatarUrl} name={message.name} />
-        <MessageContent>{message.content}</MessageContent>
-      </Message>
-    ))}
-  </ConversationContent>
-</Conversation>
+export default ({ messages }) => (
+  <Conversation>
+    <ConversationContent>
+      {messages.map((message) => (
+        <Message key={message.id} from={message.from}>
+          <MessageAvatar src={message.avatarUrl} name={message.name} />
+          <MessageContent>{message.content}</MessageContent>
+        </Message>
+      ))}
+    </ConversationContent>
+  </Conversation>
+)
 ```
 
 ## API Reference

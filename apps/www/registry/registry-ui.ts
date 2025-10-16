@@ -166,4 +166,20 @@ export const ui: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "mic-selector",
+    type: "registry:ui",
+    registryDependencies: [
+      "button",
+      "card",
+      "dropdown-menu",
+      "https://ui.elevenlabs.io/r/live-waveform.json",
+    ],
+    files: [
+      {
+        path: "ui/mic-selector.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ]

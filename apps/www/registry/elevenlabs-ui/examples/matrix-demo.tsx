@@ -10,7 +10,7 @@ import {
   type Frame,
 } from "@/registry/elevenlabs-ui/ui/matrix"
 
-export default function MatrixDemo() {
+const Example = () => {
   const [mode, setMode] = useState<
     "individual" | "focus" | "expand" | "unified" | "collapse" | "burst"
   >("individual")
@@ -544,3 +544,5 @@ function createCollapseEffect(progress: number): Frame[] {
 
   return matrices
 }
+
+export default Example

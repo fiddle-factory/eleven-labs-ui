@@ -151,6 +151,23 @@ export const examples: Registry["items"] = [
     ],
   },
   {
+    name: "mic-selector-demo",
+    type: "registry:example",
+    registryDependencies: [
+      "https://ui.elevenlabs.io/r/mic-selector.json",
+      "https://ui.elevenlabs.io/r/live-waveform.json",
+      "button",
+      "card",
+      "separator",
+    ],
+    files: [
+      {
+        path: "examples/mic-selector-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
+  {
     name: "conversation-demo",
     type: "registry:example",
     registryDependencies: [
