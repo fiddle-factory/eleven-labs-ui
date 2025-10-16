@@ -38,8 +38,8 @@ const MAX_SPEED = 0.4
 const INITIAL_SPEED = 0.15
 const SPEED_INCREASE = 1.08
 const WIN_SCORE = 3
-const AI_REACTION_SPEED = 0.22
-const AI_PREDICTION_ERROR = 0.3
+const AI_REACTION_SPEED = 0.14
+const AI_PREDICTION_ERROR = 1.2
 
 export class GameEngine {
   data: GameData
