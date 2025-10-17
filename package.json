@@ -26,7 +26,9 @@
     "release": "changeset version",
     "test:dev": "turbo run test --force",
     "test": "start-server-and-test dev http://localhost:4000 test:dev",
-    "validate:registries": "pnpm validate:registries"
+    "validate:registries": "pnpm validate:registries",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "packageManager": "pnpm@9.0.6",
   "dependencies": {
@@ -61,11 +63,18 @@
     "vitest": "^2.1.9"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^4.1.1",
+    "@storybook/addon-a11y": "^9.1.12",
+    "@storybook/addon-docs": "^9.1.12",
+    "@storybook/addon-vitest": "^9.1.12",
     "@types/hast": "^3.0.4",
     "@types/node": "^20.11.27",
     "@types/react": "^18.2.65",
     "@types/react-dom": "^18.2.22",
+    "eslint-plugin-storybook": "^9.1.12",
     "start-server-and-test": "^2.0.12",
-    "typescript": "^5.5.3"
+    "storybook": "^9.1.12",
+    "typescript": "^5.5.3",
+    "@storybook/nextjs": "^9.1.12"
   }
 }

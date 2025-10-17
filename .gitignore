@@ -43,3 +43,6 @@ tsconfig.tsbuildinfo
 .idea
 .fleet
 .vscode
+
+*storybook.log
+storybook-static
