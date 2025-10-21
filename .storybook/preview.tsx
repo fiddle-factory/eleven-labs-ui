@@ -1,5 +1,7 @@
 import type { Preview } from '@storybook/nextjs'
 import '../apps/www/styles/globals.css'
+import '../apps/www/styles/themes.css'
+
 import React, { useEffect } from 'react'
 
 const preview: Preview = {
