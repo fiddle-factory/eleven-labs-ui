@@ -2,14 +2,14 @@ import type { StorybookConfig } from "@storybook/nextjs";
 import { join, dirname, resolve } from "path";
 import { fileURLToPath } from 'url';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const currDir = fileURLToPath(new URL('.', import.meta.url));
 
 /**
 * This function is used to resolve the absolute path of a package.
 * It is needed in projects that use Yarn PnP or are set up within a monorepo.
 */
 function getAbsolutePath(value: string): string {
-  return resolve(__dirname, '../node_modules', value);
+  return resolve(currDir, '../node_modules', value);
 }
 
 const config: StorybookConfig = {
@@ -33,7 +33,7 @@ const config: StorybookConfig = {
     if (config.resolve) {
       config.resolve.alias = {
         ...config.resolve.alias,
-        "@": resolve(__dirname, "../apps/www"),
+        "@": resolve(currDir, "../apps/www"),
       };
     }
     return config;
