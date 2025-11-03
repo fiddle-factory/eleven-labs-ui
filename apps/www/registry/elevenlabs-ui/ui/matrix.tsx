@@ -423,16 +423,16 @@ export const Matrix = React.forwardRef<HTMLDivElement, MatrixProps>(
       cols,
       pattern,
       frames,
-      fps = 12,
+      fps: initialFps = 12,
       autoplay = true,
       loop = true,
-      size = 10,
-      gap = 2,
+      size: initialSize = 10,
+      gap: initialGap = 2,
       palette = {
         on: "currentColor",
         off: "var(--muted-foreground)",
       },
-      brightness = 1,
+      brightness: initialBrightness = 1,
       ariaLabel,
       onFrame,
       mode = "default",
@@ -442,6 +442,38 @@ export const Matrix = React.forwardRef<HTMLDivElement, MatrixProps>(
     },
     ref
   ) => {
+    const matrixRef = useRef<HTMLDivElement>(null)
+    
+    // Animation configuration state
+    const [fps, setFps] = useState(initialFps)
+    const [size, setSize] = useState(initialSize)
+    const [gap, setGap] = useState(initialGap)
+    const [brightness, setBrightness] = useState(initialBrightness)
+    const [glowIntensity, setGlowIntensity] = useState(2)
+    const [pixelScale, setPixelScale] = useState(1.1)
+    const [transitionSpeed, setTransitionSpeed] = useState(300)
+
+    // Listen for animation configuration updates
+    useEffect(() => {
+      const element = matrixRef.current
+      if (!element) return
+
+      const handleAnimationUpdate = (event: CustomEvent) => {
+        const params = event.detail
+        
+        if (params.fps !== undefined) setFps(params.fps)
+        if (params.size !== undefined) setSize(params.size)
+        if (params.gap !== undefined) setGap(params.gap)
+        if (params.brightness !== undefined) setBrightness(params.brightness)
+        if (params.glowIntensity !== undefined) setGlowIntensity(params.glowIntensity)
+        if (params.pixelScale !== undefined) setPixelScale(params.pixelScale)
+        if (params.transitionSpeed !== undefined) setTransitionSpeed(params.transitionSpeed)
+      }
+
+      element.addEventListener('animation:update', handleAnimationUpdate as EventListener)
+      return () => element.removeEventListener('animation:update', handleAnimationUpdate as EventListener)
+    }, [])
+    
     const { frameIndex } = useAnimation(frames, {
       fps,
       autoplay: autoplay && !pattern,
@@ -492,7 +524,15 @@ export const Matrix = React.forwardRef<HTMLDivElement, MatrixProps>(
 
     return (
       <div
-        ref={ref}
+        ref={(node) => {
+          matrixRef.current = node
+          if (typeof ref === 'function') {
+            ref(node)
+          } else if (ref) {
+            ref.current = node
+          }
+        }}
+        data-config-id="matrix-animation"
         role="img"
         aria-label={ariaLabel ?? "matrix display"}
         aria-live={isAnimating ? "polite" : undefined}
@@ -542,7 +582,7 @@ export const Matrix = React.forwardRef<HTMLDivElement, MatrixProps>(
               width="200%"
               height="200%"
             >
-              <feGaussianBlur stdDeviation="2" result="blur" />
+              <feGaussianBlur stdDeviation={glowIntensity} result="blur" />
               <feComposite in="SourceGraphic" in2="blur" operator="over" />
             </filter>
           </defs>
@@ -550,7 +590,7 @@ export const Matrix = React.forwardRef<HTMLDivElement, MatrixProps>(
           <style>
             {`
               .matrix-pixel {
-                transition: opacity 300ms ease-out, transform 150ms ease-out;
+                transition: opacity ${transitionSpeed}ms ease-out, transform ${transitionSpeed / 2}ms ease-out;
                 transform-origin: center;
                 transform-box: fill-box;
               }
@@ -572,7 +612,7 @@ export const Matrix = React.forwardRef<HTMLDivElement, MatrixProps>(
                 ? "url(#matrix-pixel-on)"
                 : "url(#matrix-pixel-off)"
 
-              const scale = isActive ? 1.1 : 1
+              const scale = isActive ? pixelScale : 1
               const radius = (size / 2) * 0.9
 
               return (
