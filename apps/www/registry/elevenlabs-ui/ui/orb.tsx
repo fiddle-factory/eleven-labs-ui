@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useMemo, useRef } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import { useTexture } from "@react-three/drei"
 import { Canvas, useFrame, useThree } from "@react-three/fiber"
 import * as THREE from "three"
@@ -38,8 +38,42 @@ export function Orb({
   getOutputVolume,
   className,
 }: OrbProps) {
+  const orbRef = useRef<HTMLDivElement>(null)
+  
+  // Animation configuration state
+  const [color1, setColor1] = useState(colors[0])
+  const [color2, setColor2] = useState(colors[1])
+  const [animationSpeed, setAnimationSpeed] = useState(0.5)
+  const [flowIntensity, setFlowIntensity] = useState(0.25)
+  const [ringOpacity, setRingOpacity] = useState(0.6)
+  const [colorTransitionSpeed, setColorTransitionSpeed] = useState(0.08)
+
+  // Listen for animation configuration updates
+  useEffect(() => {
+    const element = orbRef.current
+    if (!element) return
+
+    const handleAnimationUpdate = (event: CustomEvent) => {
+      const params = event.detail
+      
+      if (params.color1 !== undefined) setColor1(params.color1)
+      if (params.color2 !== undefined) setColor2(params.color2)
+      if (params.animationSpeed !== undefined) setAnimationSpeed(params.animationSpeed)
+      if (params.flowIntensity !== undefined) setFlowIntensity(params.flowIntensity)
+      if (params.ringOpacity !== undefined) setRingOpacity(params.ringOpacity)
+      if (params.colorTransitionSpeed !== undefined) setColorTransitionSpeed(params.colorTransitionSpeed)
+    }
+
+    element.addEventListener('animation:update', handleAnimationUpdate as EventListener)
+    return () => element.removeEventListener('animation:update', handleAnimationUpdate as EventListener)
+  }, [])
+  
   return (
-    <div className={className ?? "relative h-full w-full p-5"}>
+    <div 
+      ref={orbRef}
+      data-config-id="orb-animation"
+      className={className ?? "relative h-full w-full"}
+    >
       <Canvas
         resize={{ debounce: resizeDebounce }}
         gl={{
@@ -49,7 +83,7 @@ export function Orb({
         }}
       >
         <Scene
-          colors={colors}
+          colors={[color1, color2]}
           colorsRef={colorsRef}
           seed={seed}
           agentState={agentState}
@@ -60,6 +94,10 @@ export function Orb({
           outputVolumeRef={outputVolumeRef}
           getInputVolume={getInputVolume}
           getOutputVolume={getOutputVolume}
+          animationSpeed={animationSpeed}
+          flowIntensity={flowIntensity}
+          ringOpacity={ringOpacity}
+          colorTransitionSpeed={colorTransitionSpeed}
         />
       </Canvas>
     </div>
@@ -78,6 +116,10 @@ function Scene({
   outputVolumeRef,
   getInputVolume,
   getOutputVolume,
+  animationSpeed,
+  flowIntensity,
+  ringOpacity,
+  colorTransitionSpeed,
 }: {
   colors: [string, string]
   colorsRef?: React.RefObject<[string, string]>
@@ -90,6 +132,10 @@ function Scene({
   outputVolumeRef?: React.RefObject<number>
   getInputVolume?: () => number
   getOutputVolume?: () => number
+  animationSpeed: number
+  flowIntensity: number
+  ringOpacity: number
+  colorTransitionSpeed: number
 }) {
   const { gl } = useThree()
   const circleRef =
@@ -170,7 +216,7 @@ function Scene({
       if (live[1]) targetColor2Ref.current.set(live[1])
     }
     const u = mat.uniforms
-    u.uTime.value += delta * 0.5
+    u.uTime.value += delta * animationSpeed
 
     if (u.uOpacity.value < 1) {
       u.uOpacity.value = Math.min(1, u.uOpacity.value + delta * 2)
@@ -213,8 +259,8 @@ function Scene({
     u.uAnimation.value += delta * animSpeedRef.current
     u.uInputVolume.value = curInRef.current
     u.uOutputVolume.value = curOutRef.current
-    u.uColor1.value.lerp(targetColor1Ref.current, 0.08)
-    u.uColor2.value.lerp(targetColor2Ref.current, 0.08)
+    u.uColor1.value.lerp(targetColor1Ref.current, colorTransitionSpeed)
+    u.uColor2.value.lerp(targetColor2Ref.current, colorTransitionSpeed)
   })
 
   useEffect(() => {
@@ -247,8 +293,10 @@ function Scene({
       uInputVolume: new THREE.Uniform(0),
       uOutputVolume: new THREE.Uniform(0),
       uOpacity: new THREE.Uniform(0),
+      uFlowIntensity: new THREE.Uniform(flowIntensity),
+      uRingOpacity: new THREE.Uniform(ringOpacity),
     }
-  }, [perlinNoiseTexture, offsets])
+  }, [perlinNoiseTexture, offsets, flowIntensity, ringOpacity])
 
   return (
     <mesh ref={circleRef}>
@@ -300,6 +348,8 @@ uniform vec3 uColor2;
 uniform float uInputVolume;
 uniform float uOutputVolume;
 uniform float uOpacity;
+uniform float uFlowIntensity;
+uniform float uRingOpacity;
 uniform sampler2D uPerlinTexture;
 varying vec2 vUv;
 
@@ -416,7 +466,7 @@ void main() {
 
     // Add noise to the angle for a flow-like distortion (reduced for flatter look)
     float noise = flow(decomposed, radius * 0.03 - uAnimation * 0.2) - 0.5;
-    theta += noise * mix(0.08, 0.25, uOutputVolume);
+    theta += noise * mix(0.08, 0.25, uOutputVolume) * uFlowIntensity;
 
     // Initialize the base color to white
     vec4 color = vec4(1.0, 1.0, 1.0, 1.0);
@@ -467,8 +517,8 @@ void main() {
     // Adjust rings based on input volume (reduced for flatter appearance)
     float inputRadius1 = radius + uInputVolume * 0.2;
     float inputRadius2 = radius + uInputVolume * 0.15;
-    float opacity1 = mix(0.2, 0.6, uInputVolume);
-    float opacity2 = mix(0.15, 0.45, uInputVolume);
+    float opacity1 = mix(0.2, 0.6, uInputVolume) * uRingOpacity;
+    float opacity2 = mix(0.15, 0.45, uInputVolume) * uRingOpacity;
 
     // Blend both rings
     float ringAlpha1 = (inputRadius2 >= ringRadius1) ? opacity1 : 0.0;
