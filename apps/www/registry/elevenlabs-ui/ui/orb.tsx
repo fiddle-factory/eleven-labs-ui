@@ -72,7 +72,7 @@ export function Orb({
     <div 
       ref={orbRef}
       data-config-id="orb-animation"
-      className={className ?? "relative h-full w-full"}
+      className={className ?? "relative h-full w-full p-5"}
     >
       <Canvas
         resize={{ debounce: resizeDebounce }}
