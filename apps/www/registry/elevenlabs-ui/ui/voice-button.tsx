@@ -158,7 +158,7 @@ export const VoiceButton = React.forwardRef<
         {...props}
       >
         {size !== "icon" && displayLabel && (
-          <span className="inline-flex shrink-0 items-center justify-start">
+          <span className="inline-flex shrink-0 items-center justify-start text-[#FF1493]">
             {displayLabel}
           </span>
         )}
@@ -196,7 +196,7 @@ export const VoiceButton = React.forwardRef<
           {shouldShowTrailing && (
             <div className="animate-in fade-in absolute inset-0 flex items-center justify-center duration-300">
               {typeof trailing === "string" ? (
-                <span className="text-muted-foreground px-1.5 font-mono text-[10px] font-medium select-none">
+                <span className="text-[#FF1493] px-1.5 font-mono text-[10px] font-medium select-none">
                   {trailing}
                 </span>
               ) : (
@@ -216,7 +216,7 @@ export const VoiceButton = React.forwardRef<
 
           {isSuccess && showFeedback && (
             <div className="animate-in fade-in bg-background/80 absolute inset-0 flex items-center justify-center duration-300">
-              <span className="text-primary text-[10px] font-medium">
+              <span className="text-[#FF1493] text-[10px] font-medium">
                 <CheckIcon className="size-3.5" />
               </span>
             </div>
@@ -237,3 +237,6 @@ export const VoiceButton = React.forwardRef<
 )
 
 VoiceButton.displayName = "VoiceButton"
+
+
+
