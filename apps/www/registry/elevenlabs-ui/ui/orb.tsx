@@ -24,7 +24,7 @@ type OrbProps = {
 }
 
 export function Orb({
-  colors = ["#CADCFC", "#A0B9D1"],
+  colors = ["#FF69B4", "#FF1493"],
   colorsRef,
   resizeDebounce = 100,
   seed,
@@ -546,3 +546,4 @@ void main() {
     gl_FragColor = color;
 }
 `
+
