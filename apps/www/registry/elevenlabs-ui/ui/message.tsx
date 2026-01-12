@@ -1,4 +1,5 @@
 import type { ComponentProps, HTMLAttributes } from "react"
+import { useEffect, useRef, useState } from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
@@ -53,14 +54,57 @@ export const MessageContent = ({
   className,
   variant,
   ...props
-}: MessageContentProps) => (
-  <div
-    className={cn(messageContentVariants({ variant, className }))}
-    {...props}
-  >
-    {children}
-  </div>
-)
+}: MessageContentProps) => {
+  const contentRef = useRef<HTMLDivElement>(null)
+  const [bgColor1, setBgColor1] = useState("#3b82f6")
+  const [bgColor2, setBgColor2] = useState("#8b5cf6")
+  const [bgSpeed, setBgSpeed] = useState(4)
+  const [bgIntensity, setBgIntensity] = useState(0.15)
+
+  useEffect(() => {
+    const element = contentRef.current
+    if (!element) return
+
+    const handleAnimationUpdate = (event: CustomEvent) => {
+      const params = event.detail
+      if (params.bgColor1 !== undefined) setBgColor1(params.bgColor1)
+      if (params.bgColor2 !== undefined) setBgColor2(params.bgColor2)
+      if (params.bgSpeed !== undefined) setBgSpeed(params.bgSpeed)
+      if (params.bgIntensity !== undefined) setBgIntensity(params.bgIntensity)
+    }
+
+    element.addEventListener('animation:update', handleAnimationUpdate as EventListener)
+    return () => element.removeEventListener('animation:update', handleAnimationUpdate as EventListener)
+  }, [])
+
+  return (
+    <div
+      ref={contentRef}
+      data-config-id="message-bg-animation"
+      className={cn(messageContentVariants({ variant, className }))}
+      style={{
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+      {...props}
+    >
+      <style>{`
+        @keyframes messageBgColorCycle {
+          0%, 100% { 
+            background-color: ${bgColor1}${Math.round(bgIntensity * 255).toString(16).padStart(2, '0')}; 
+          }
+          50% { 
+            background-color: ${bgColor2}${Math.round(bgIntensity * 255).toString(16).padStart(2, '0')}; 
+          }
+        }
+        [data-config-id="message-bg-animation"] {
+          animation: messageBgColorCycle ${bgSpeed}s ease-in-out infinite;
+        }
+      `}</style>
+      {children}
+    </div>
+  )
+}
 
 export type MessageAvatarProps = ComponentProps<typeof Avatar> & {
   src: string
@@ -78,3 +122,5 @@ export const MessageAvatar = ({
     <AvatarFallback>{name?.slice(0, 2) || "ME"}</AvatarFallback>
   </Avatar>
 )
+
+
