@@ -331,7 +331,7 @@ export const AudioPlayerProgress = ({
       }
     >
       <SliderPrimitive.Track className="bg-muted relative h-[4px] w-full grow overflow-hidden rounded-full">
-        <SliderPrimitive.Range className="bg-primary absolute h-full" />
+        <SliderPrimitive.Range className="absolute h-full bg-pink-500" />
       </SliderPrimitive.Track>
       <SliderPrimitive.Thumb
         className="relative flex h-0 w-0 items-center justify-center opacity-0 group-hover/player:opacity-100 focus-visible:opacity-100 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50"
@@ -652,3 +652,4 @@ export const exampleTracks = [
     url: "https://storage.googleapis.com/eleven-public-cdn/audio/ui-elevenlabs-io/09.mp3",
   },
 ]
+
