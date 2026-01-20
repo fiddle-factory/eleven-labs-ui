@@ -1,32 +1,27 @@
-import type { StorybookConfig } from "@storybook/nextjs";
-// Removed Node.js-specific path resolution logic for Storybook v9 compatibility
+import { mergeConfig } from 'vite';
+import originalConfig from './original-main';
 
-const config: StorybookConfig = {
-  stories: [
-    "../apps/www/registry/elevenlabs-ui/ui/**/*.mdx",
-    "../apps/www/registry/elevenlabs-ui/ui/**/*.stories.@(js|jsx|mjs|ts|tsx)"
-  ],
-  addons: [
-    "@chromatic-com/storybook",
-    "@storybook/addon-docs",
-    "@storybook/addon-a11y",
-    "@storybook/addon-vitest"
-  ],
-  framework: {
-    name: "@storybook/nextjs",
-    options: {
-      nextConfigPath: "../apps/www/next.config.mjs"
+const customConfig = {
+  server: {
+    host: '0.0.0.0',
+    strictPort: false,
+    hmr: false,
+    allowedHosts: true
+  }
+};
+
+export default {
+  ...originalConfig,
+  viteFinal: async (config, { configType }) => {
+    // Call original viteFinal first if it exists
+    let finalConfig = config;
+    if (originalConfig.viteFinal) {
+      finalConfig = await originalConfig.viteFinal(config, { configType });
     }
-  },
-  webpackFinal: async (config) => {
-    if (config.resolve) {
-      const path = require('path');
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        "@": path.resolve(__dirname, '../apps/www'),
-      };
-    }
-    return config;
+
+    // Merge with custom configuration
+    finalConfig = mergeConfig(finalConfig, customConfig);
+    finalConfig.base = '/storybook';
+    return finalConfig;
   },
 };
-export default config;
