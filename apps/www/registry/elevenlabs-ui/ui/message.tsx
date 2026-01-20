@@ -56,7 +56,7 @@ export const MessageContent = ({
   ...props
 }: MessageContentProps) => {
   const contentRef = useRef<HTMLDivElement>(null)
-  const [glowColor, setGlowColor] = useState("#ffffff")
+  const [glowColor, setGlowColor] = useState("#ff0000")
   const [glowIntensity, setGlowIntensity] = useState(0.5)
   const [glowSpeed, setGlowSpeed] = useState(2)
   const [glowSpread, setGlowSpread] = useState(10)
@@ -121,5 +121,6 @@ export const MessageAvatar = ({
     <AvatarFallback>{name?.slice(0, 2) || "ME"}</AvatarFallback>
   </Avatar>
 )
+
 
 
