@@ -59,7 +59,6 @@ export const MessageContent = ({
   const [glowColor, setGlowColor] = useState("#ff0000")
   const [glowIntensity, setGlowIntensity] = useState(0.5)
   const [glowSpeed, setGlowSpeed] = useState(2)
-  const [glowSpread, setGlowSpread] = useState(10)
 
   useEffect(() => {
     const element = contentRef.current
@@ -70,12 +69,22 @@ export const MessageContent = ({
       if (params.glowColor !== undefined) setGlowColor(params.glowColor)
       if (params.glowIntensity !== undefined) setGlowIntensity(params.glowIntensity)
       if (params.glowSpeed !== undefined) setGlowSpeed(params.glowSpeed)
-      if (params.glowSpread !== undefined) setGlowSpread(params.glowSpread)
     }
 
     element.addEventListener('animation:update', handleAnimationUpdate as EventListener)
     return () => element.removeEventListener('animation:update', handleAnimationUpdate as EventListener)
   }, [])
+
+  const hexToRgb = (hex: string) => {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : { r: 255, g: 0, b: 0 }
+  }
+
+  const rgb = hexToRgb(glowColor)
 
   return (
     <div
@@ -83,20 +92,19 @@ export const MessageContent = ({
       data-config-id="message-text-glow"
       className={cn(messageContentVariants({ variant, className }))}
       style={{
-        animation: `textGlow ${glowSpeed}s ease-in-out infinite`,
-        textShadow: `0 0 ${glowSpread * glowIntensity}px ${glowColor}`,
+        animation: `textColorGlow ${glowSpeed}s ease-in-out infinite`,
       }}
       {...props}
     >
       {children}
       <style dangerouslySetInnerHTML={{
         __html: `
-          @keyframes textGlow {
+          @keyframes textColorGlow {
             0%, 100% {
-              text-shadow: 0 0 ${glowSpread * 0.3}px ${glowColor}, 0 0 ${glowSpread * 0.5}px ${glowColor};
+              color: rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${0.3 + glowIntensity * 0.3});
             }
             50% {
-              text-shadow: 0 0 ${glowSpread * glowIntensity}px ${glowColor}, 0 0 ${glowSpread * glowIntensity * 1.5}px ${glowColor}, 0 0 ${glowSpread * glowIntensity * 2}px ${glowColor};
+              color: rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${0.6 + glowIntensity * 0.4});
             }
           }
         `
@@ -121,6 +129,8 @@ export const MessageAvatar = ({
     <AvatarFallback>{name?.slice(0, 2) || "ME"}</AvatarFallback>
   </Avatar>
 )
+
+
 
 
 
