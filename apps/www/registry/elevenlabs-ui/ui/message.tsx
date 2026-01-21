@@ -30,7 +30,7 @@ const messageContentVariants = cva(
       variant: {
         contained: [
           "max-w-[80%] px-4 py-3",
-          "group-[.is-user]:bg-primary group-[.is-user]:text-white",
+          "group-[.is-user]:bg-primary group-[.is-user]:text-red-500",
           "group-[.is-assistant]:bg-secondary group-[.is-assistant]:text-foreground",
         ],
         flat: [
@@ -78,4 +78,5 @@ export const MessageAvatar = ({
     <AvatarFallback>{name?.slice(0, 2) || "ME"}</AvatarFallback>
   </Avatar>
 )
+
 
