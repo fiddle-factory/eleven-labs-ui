@@ -1,32 +1,36 @@
-import type { StorybookConfig } from "@storybook/nextjs";
-// Removed Node.js-specific path resolution logic for Storybook v9 compatibility
+import { mergeConfig } from 'vite';
+import originalConfig from './original-main';
 
-const config: StorybookConfig = {
-  stories: [
-    "../apps/www/registry/elevenlabs-ui/ui/**/*.mdx",
-    "../apps/www/registry/elevenlabs-ui/ui/**/*.stories.@(js|jsx|mjs|ts|tsx)"
-  ],
-  addons: [
-    "@chromatic-com/storybook",
-    "@storybook/addon-docs",
-    "@storybook/addon-a11y",
-    "@storybook/addon-vitest"
-  ],
-  framework: {
-    name: "@storybook/nextjs",
-    options: {
-      nextConfigPath: "../apps/www/next.config.mjs"
+export default {
+  ...originalConfig,
+  viteFinal: async (config, { configType, port, host }) => {
+    // Call original viteFinal first if it exists
+    const customConfig = {
+      server: {
+        host: '0.0.0.0',
+        strictPort: false,
+        allowedHosts: true,
+        hmr: {
+          clientPort: 443,
+          host: `${port}-${process.env.E2B_SANDBOX_ID}.e2b.app`,
+        }
+      }
+  };
+    let finalConfig = config;
+    if (originalConfig.viteFinal) {
+      finalConfig = await originalConfig.viteFinal(config, { configType });
     }
-  },
-  webpackFinal: async (config) => {
-    if (config.resolve) {
-      const path = require('path');
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        "@": path.resolve(__dirname, '../apps/www'),
-      };
+
+    // Merge with custom configuration
+    finalConfig = mergeConfig(finalConfig, customConfig);
+  
+  // BUILD_STATIC is set to true to work around a storybook static build bug we discorered
+  // where base is set the static assets doesn't respect the base path 
+  // But the URLs do get prefixed correctly during the build so setting base to /storybook
+  // To fix this, we do not set the base during static builds
+  if (process.env.BUILD_STATIC !== 'true') {
+      finalConfig.base = '/storybook';
     }
-    return config;
+    return finalConfig;
   },
 };
-export default config;
