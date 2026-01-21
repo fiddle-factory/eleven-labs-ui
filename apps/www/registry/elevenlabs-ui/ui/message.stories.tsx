@@ -30,7 +30,7 @@ export const UserMessage: Story = {
     <div className="w-[600px] bg-background p-4">
       <Message from="user">
         <MessageAvatar src="/avatars/01.png" name="John" />
-        <MessageContent>Hello, how can I help you?</MessageContent>
+        <MessageContent>hellowwww</MessageContent>
       </Message>
     </div>
   ),
@@ -243,4 +243,5 @@ export const LongMessage: Story = {
     },
   },
 };
+
 
