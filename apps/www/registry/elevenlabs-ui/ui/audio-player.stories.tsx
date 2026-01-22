@@ -147,7 +147,7 @@ export const Playlist: Story = {
 export const MinimalPlayer: Story = {
   render: () => (
     <AudioPlayerProvider>
-      <div className="flex w-[400px] items-center gap-3 rounded-lg border border-border bg-background p-4">
+      <div className="flex w-[400px] items-center gap-3 rounded-lg border border-border bg-background p-4" style={{ boxShadow: '0 0 20px 5px rgba(255, 165, 0, 0.6)' }}>
         <AudioPlayerButton
           item={{
             id: "minimal",
@@ -175,4 +175,5 @@ export const MinimalPlayer: Story = {
     },
   },
 };
+
 
