@@ -117,7 +117,7 @@ export const Playlist: Story = {
           {exampleTracks.slice(0, 5).map((track) => (
             <div
               key={track.id}
-              className="flex items-center gap-3 rounded-md border border-border p-3 hover:bg-accent/50"
+              className="flex items-center gap-3 rounded-md border border-border p-3 hover:bg-accent/50 shadow-[0_0_15px_rgba(236,72,153,0.3)] hover:shadow-[0_0_20px_rgba(236,72,153,0.5)] transition-shadow"
             >
               <AudioPlayerButton
                 item={{
@@ -128,7 +128,7 @@ export const Playlist: Story = {
                 size="sm"
                 variant="ghost"
               />
-              <span className="text-sm">{track.name}</span>
+              <span className="text-[2.625rem]">{track.name}</span>
             </div>
           ))}
         </div>
@@ -175,4 +175,6 @@ export const MinimalPlayer: Story = {
     },
   },
 };
+
+
 
