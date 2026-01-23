@@ -189,7 +189,7 @@ export const ConversationWithOrb: Story = {
         <MessageContent>Can you explain quantum computing?</MessageContent>
       </Message>
       <Message from="assistant">
-        <div className="size-8">
+        <div className="size-24">
           <Orb className="h-full w-full" agentState="talking" />
         </div>
         <MessageContent>
@@ -203,7 +203,7 @@ export const ConversationWithOrb: Story = {
         <MessageContent>That's fascinating! Tell me more.</MessageContent>
       </Message>
       <Message from="assistant">
-        <div className="size-8">
+        <div className="size-24">
           <Orb className="h-full w-full" agentState="thinking" />
         </div>
         <MessageContent>
@@ -243,4 +243,5 @@ export const LongMessage: Story = {
     },
   },
 };
+
 
