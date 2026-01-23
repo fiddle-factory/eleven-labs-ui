@@ -351,7 +351,7 @@ export const AudioPlayerTime = ({
   return (
     <span
       {...otherProps}
-      className={cn("text-muted-foreground text-sm tabular-nums", className)}
+      className={cn("text-red-500 text-sm tabular-nums", className)}
     >
       {formatTime(time)}
     </span>
@@ -366,7 +366,7 @@ export const AudioPlayerDuration = ({
   return (
     <span
       {...otherProps}
-      className={cn("text-muted-foreground text-sm tabular-nums", className)}
+      className={cn("text-red-500 text-sm tabular-nums", className)}
     >
       {player.duration !== null &&
       player.duration !== undefined &&
@@ -652,3 +652,5 @@ export const exampleTracks = [
     url: "https://storage.googleapis.com/eleven-public-cdn/audio/ui-elevenlabs-io/09.mp3",
   },
 ]
+
+
