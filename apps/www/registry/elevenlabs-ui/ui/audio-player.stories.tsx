@@ -86,7 +86,7 @@ export const WithSpeedButtons: Story = {
             </div>
           </div>
         </div>
-        <AudioPlayerSpeedButtonGroup speeds={[0.5, 1, 1.5, 2]} />
+        <AudioPlayerSpeedButtonGroup speeds={[0.5, 1, 1.5, 2]} className="[&_button]:bg-pink-500 [&_button]:hover:bg-pink-600 [&_button]:text-white" />
       </div>
     </AudioPlayerProvider>
   ),
@@ -175,4 +175,5 @@ export const MinimalPlayer: Story = {
     },
   },
 };
+
 
