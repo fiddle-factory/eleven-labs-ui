@@ -45,7 +45,7 @@ export const BasicPlayer: Story = {
           />
           <div className="flex flex-1 flex-col gap-2">
             <AudioPlayerProgress />
-            <div className="flex justify-between">
+            <div className="flex justify-between bg-green-500">
               <AudioPlayerTime />
               <AudioPlayerDuration />
             </div>
@@ -175,4 +175,5 @@ export const MinimalPlayer: Story = {
     },
   },
 };
+
 
