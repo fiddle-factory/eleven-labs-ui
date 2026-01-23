@@ -67,7 +67,7 @@ export const BasicPlayer: Story = {
 export const WithSpeedButtons: Story = {
   render: () => (
     <AudioPlayerProvider>
-      <div className="flex w-[600px] flex-col gap-4 rounded-lg border border-border bg-background p-6" style={{ boxShadow: "0 0 20px rgba(34, 197, 94, 0.6), 0 0 40px rgba(34, 197, 94, 0.4)" }}>
+      <div className="flex w-[600px] flex-col gap-4 rounded-lg border border-border bg-background p-6" style={{ boxShadow: "0 0 20px rgba(59, 130, 246, 0.6), 0 0 40px rgba(59, 130, 246, 0.4)" }}>
         <div className="flex items-center gap-4">
           <AudioPlayerButton
             item={{
@@ -175,5 +175,6 @@ export const MinimalPlayer: Story = {
     },
   },
 };
+
 
 
