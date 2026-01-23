@@ -163,11 +163,11 @@ export const WithOrbListening: Story = {
   render: () => (
     <div className="w-[600px] bg-background p-4">
       <Message from="assistant">
-        <div className="size-8">
+        <div className="size-16">
           <Orb className="h-full w-full" agentState="listening" />
         </div>
         <MessageContent>
-          I'm listening to your input. The orb shows I'm ready to receive.
+          hello world
         </MessageContent>
       </Message>
     </div>
@@ -243,4 +243,5 @@ export const LongMessage: Story = {
     },
   },
 };
+
 
