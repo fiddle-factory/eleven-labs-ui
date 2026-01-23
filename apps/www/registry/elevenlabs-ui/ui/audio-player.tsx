@@ -423,12 +423,12 @@ const PlayButton = ({
     >
       {playing ? (
         <PauseIcon
-          className={cn("size-4", loading && "opacity-0")}
+          className={cn("size-6", loading && "opacity-0")}
           aria-hidden="true"
         />
       ) : (
         <PlayIcon
-          className={cn("size-4", loading && "opacity-0")}
+          className={cn("size-6", loading && "opacity-0")}
           aria-hidden="true"
         />
       )}
@@ -544,7 +544,7 @@ export function AudioPlayerSpeed({
           aria-label="Playback speed"
           {...props}
         >
-          <Settings className="size-4" />
+          <Settings className="size-6" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="min-w-[120px]">
@@ -652,5 +652,7 @@ export const exampleTracks = [
     url: "https://storage.googleapis.com/eleven-public-cdn/audio/ui-elevenlabs-io/09.mp3",
   },
 ]
+
+
 
 
