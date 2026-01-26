@@ -25,7 +25,8 @@ type Story = StoryObj<typeof Orb>;
 // Basic States
 export const Idle: Story = {
   render: () => (
-    <div className="relative h-32 w-32">
+    <div className="relative h-32 w-32 rounded-lg bg-muted p-6 flex items-center justify-center">
+      <p className="text-accent-foreground text-sm font-medium">Use the accent foreground color for this text</p>
       <Orb agentState={null} />
     </div>
   ),
@@ -340,4 +341,5 @@ export const ColorPaletteShowcase: Story = {
     },
   },
 };
+
 

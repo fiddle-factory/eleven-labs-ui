@@ -1,32 +1,69 @@
-import type { StorybookConfig } from "@storybook/nextjs";
-// Removed Node.js-specific path resolution logic for Storybook v9 compatibility
+import path from 'path';
+import originalConfig from './original-main';
 
-const config: StorybookConfig = {
-  stories: [
-    "../apps/www/registry/elevenlabs-ui/ui/**/*.mdx",
-    "../apps/www/registry/elevenlabs-ui/ui/**/*.stories.@(js|jsx|mjs|ts|tsx)"
-  ],
-  addons: [
-    "@chromatic-com/storybook",
-    "@storybook/addon-docs",
-    "@storybook/addon-a11y",
-    "@storybook/addon-vitest"
-  ],
-  framework: {
-    name: "@storybook/nextjs",
-    options: {
-      nextConfigPath: "../apps/www/next.config.mjs"
+const getStories = () => {
+  const envStories = process.env.STORIES;
+
+  if (envStories) {
+    // Split by comma and process each path
+    const s = envStories.split(',').map(pattern => {
+      let trimmed = pattern.trim();
+
+      // Strip leading ./ or ../ to normalize the path
+      trimmed = trimmed.replace(/^\.\.?\//, '');
+
+      // Prepend ../ to make it relative to .storybook directory
+      const path = `../${trimmed}`;
+
+      // If it's a specific file (has an extension), convert to a glob pattern
+      // that Storybook's indexer can match
+      if (path.match(/\.(tsx|ts|jsx|js|mjs)$/)) {
+        // Replace the specific extension with a glob pattern
+        return path.replace(/\.(tsx|ts|jsx|js|mjs)$/, '.@(js|jsx|mjs|ts|tsx)');
+      }
+
+      // If it's already a pattern (contains **), return as is
+      return path;
+    });
+    console.log(`Using STORIES from env: ${JSON.stringify(s)}`);
+    return s;
+  }
+
+  return undefined;
+};
+
+const stories = getStories();
+
+export default {
+  ...originalConfig,
+  ...(stories ? { stories } : {}),
+
+  webpackFinal: async (config, { configType }) => {
+    // Call original webpackFinal first if it exists
+    let finalConfig = config;
+    if (originalConfig.webpackFinal) {
+      finalConfig = await originalConfig.webpackFinal(config, { configType });
     }
-  },
-  webpackFinal: async (config) => {
-    if (config.resolve) {
-      const path = require('path');
-      config.resolve.alias = {
-        ...config.resolve.alias,
-        "@": path.resolve(__dirname, '../apps/www'),
+
+    // Configure devServer for development mode
+    if (configType === 'DEVELOPMENT') {
+      finalConfig.devServer = {
+        ...finalConfig.devServer,
+        client: {
+          ...(finalConfig.devServer?.client || {}),
+          overlay: false,
+        },
       };
     }
-    return config;
+
+    // Enable webpack 5 filesystem caching (absolute path required)
+    finalConfig.cache = {
+      type: 'filesystem',
+      cacheDirectory: '/home/builder/.storybook-cache/',
+      allowCollectingMemory: true,
+      compression: "gzip",
+    };
+
+    return finalConfig;
   },
 };
-export default config;
