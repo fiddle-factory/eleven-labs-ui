@@ -588,10 +588,13 @@ export function AudioPlayerSpeedButtonGroup({
       {speeds.map((speed) => (
         <Button
           key={speed}
-          variant={currentSpeed === speed ? "default" : "outline"}
+          variant={currentSpeed === speed ? "default" : "ghost"}
           size="sm"
           onClick={() => player.setPlaybackRate(speed)}
-          className="min-w-[50px] font-mono text-xs"
+          className={cn(
+            "min-w-[50px] font-mono text-xs",
+            currentSpeed !== speed && "bg-muted text-muted-foreground hover:bg-muted/80"
+          )}
         >
           {speed}x
         </Button>
@@ -652,3 +655,4 @@ export const exampleTracks = [
     url: "https://storage.googleapis.com/eleven-public-cdn/audio/ui-elevenlabs-io/09.mp3",
   },
 ]
+
