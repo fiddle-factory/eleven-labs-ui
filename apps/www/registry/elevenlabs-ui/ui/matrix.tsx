@@ -536,7 +536,7 @@ export const Matrix = React.forwardRef<HTMLDivElement, MatrixProps>(
         role="img"
         aria-label={ariaLabel ?? "matrix display"}
         aria-live={isAnimating ? "polite" : undefined}
-        className={cn("relative inline-block p-5", className)}
+        className={cn("relative inline-block p-5 bg-background", className)}
         style={
           {
             "--matrix-on": palette.on,
