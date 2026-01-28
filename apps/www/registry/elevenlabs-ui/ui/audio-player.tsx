@@ -418,7 +418,7 @@ const PlayButton = ({
         onClick?.(e)
       }}
       className={cn("relative", className)}
-      style={{ backgroundColor: '#eab308', ...otherProps.style }}
+      style={{ backgroundColor: '#fbcfe8', ...otherProps.style }}
       aria-label={playing ? "Pause" : "Play"}
       type="button"
     >
@@ -653,6 +653,7 @@ export const exampleTracks = [
     url: "https://storage.googleapis.com/eleven-public-cdn/audio/ui-elevenlabs-io/09.mp3",
   },
 ]
+
 
 
 
