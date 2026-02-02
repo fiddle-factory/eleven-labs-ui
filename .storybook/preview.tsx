@@ -1,3 +1,4 @@
+import "@fiddle-factory/storybook-listener"
 import type { Preview } from '@storybook/nextjs'
 import '../apps/www/styles/globals.css'
 import '../apps/www/styles/themes.css'
