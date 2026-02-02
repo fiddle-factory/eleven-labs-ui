@@ -48,7 +48,7 @@ export const AssistantMessage: Story = {
     <div className="w-[600px] bg-background p-4">
       <Message from="assistant">
         <MessageAvatar src="/avatars/02.png" name="AI" />
-        <MessageContent>are you ready?</MessageContent>
+        <MessageContent>are you not ready?</MessageContent>
       </Message>
     </div>
   ),
@@ -243,5 +243,6 @@ export const LongMessage: Story = {
     },
   },
 };
+
 
 
