@@ -543,14 +543,18 @@ void main() {
     // Apply fade-in opacity
     color.a *= uOpacity;
 
-    // Add orange glow effect
-    float glowDistance = length(uv);
-    float glowIntensity = smoothstep(1.2, 0.3, glowDistance) * 0.6;
-    vec3 orangeGlow = vec3(1.0, 0.5, 0.0); // Orange color
-    color.rgb = mix(color.rgb, orangeGlow, glowIntensity * (1.0 - color.a));
-    color.a = max(color.a, glowIntensity * 0.4);
+    // Add orange glow to the border
+    float distFromCenter = length(uv);
+    // Create a ring glow at the border (peaks around radius 0.9-1.1)
+    float borderGlow = exp(-pow((distFromCenter - 1.0) * 4.0, 2.0)) * 1.5;
+    vec3 orangeGlow = vec3(1.0, 0.4, 0.0); // Vibrant orange color
+    
+    // Apply the orange glow to the border
+    color.rgb += orangeGlow * borderGlow * 0.8;
+    color.a = max(color.a, borderGlow * 0.5);
 
     gl_FragColor = color;
 }
 `
+
 
