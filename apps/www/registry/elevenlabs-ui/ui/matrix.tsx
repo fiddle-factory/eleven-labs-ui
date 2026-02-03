@@ -429,8 +429,8 @@ export const Matrix = React.forwardRef<HTMLDivElement, MatrixProps>(
       size: initialSize = 10,
       gap: initialGap = 2,
       palette = {
-        on: "currentColor",
-        off: "var(--muted-foreground)",
+        on: "#ef4444",
+        off: "#fca5a5",
       },
       brightness: initialBrightness = 1,
       ariaLabel,
@@ -557,20 +557,20 @@ export const Matrix = React.forwardRef<HTMLDivElement, MatrixProps>(
         >
           <defs>
             <radialGradient id="matrix-pixel-on" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="currentColor" stopOpacity="1" />
-              <stop offset="70%" stopColor="currentColor" stopOpacity="0.85" />
-              <stop offset="100%" stopColor="currentColor" stopOpacity="0.6" />
+              <stop offset="0%" stopColor="#ef4444" stopOpacity="1" />
+              <stop offset="70%" stopColor="#dc2626" stopOpacity="0.85" />
+              <stop offset="100%" stopColor="#b91c1c" stopOpacity="0.6" />
             </radialGradient>
 
             <radialGradient id="matrix-pixel-off" cx="50%" cy="50%" r="50%">
               <stop
                 offset="0%"
-                stopColor="var(--muted-foreground)"
+                stopColor="#fca5a5"
                 stopOpacity="1"
               />
               <stop
                 offset="100%"
-                stopColor="var(--muted-foreground)"
+                stopColor="#fca5a5"
                 stopOpacity="0.7"
               />
             </radialGradient>
@@ -642,3 +642,4 @@ export const Matrix = React.forwardRef<HTMLDivElement, MatrixProps>(
 )
 
 Matrix.displayName = "Matrix"
+
