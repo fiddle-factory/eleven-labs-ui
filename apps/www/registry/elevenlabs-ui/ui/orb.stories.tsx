@@ -205,7 +205,7 @@ export const MultipleOrbs: Story = {
         </div>
 
         <div className="space-y-4">
-          <div className="flex justify-center gap-8">
+          <div data-config-id="hookified" className="flex justify-center gap-8 bg-red-500">
             {orbColors.map((colors, index) => (
               <div key={index} className="relative">
                 <div className="relative h-32 w-32 rounded-full bg-muted p-1 shadow-[inset_0_2px_8px_rgba(0,0,0,0.1)] dark:shadow-[inset_0_2px_8px_rgba(0,0,0,0.5)]">
@@ -340,4 +340,5 @@ export const ColorPaletteShowcase: Story = {
     },
   },
 };
+
 
