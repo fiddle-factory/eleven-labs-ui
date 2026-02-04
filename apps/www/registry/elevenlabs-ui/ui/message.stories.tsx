@@ -139,7 +139,7 @@ export const WithOrb: Story = {
 
 export const WithOrbTalking: Story = {
   render: () => (
-    <div className="w-[600px] bg-white p-4">
+    <div className="w-[600px] p-4" style={{ backgroundColor: '#8B0000' }}>
       <Message from="assistant">
         <div className="size-8">
           <Orb className="h-full w-full" agentState="talking" />
@@ -243,5 +243,6 @@ export const LongMessage: Story = {
     },
   },
 };
+
 
 
