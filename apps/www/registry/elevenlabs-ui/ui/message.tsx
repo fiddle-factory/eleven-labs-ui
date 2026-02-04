@@ -56,6 +56,7 @@ export const MessageContent = ({
 }: MessageContentProps) => (
   <div
     className={cn(messageContentVariants({ variant, className }))}
+    style={{ color: '#00008B' }}
     {...props}
   >
     {children}
@@ -78,3 +79,4 @@ export const MessageAvatar = ({
     <AvatarFallback>{name?.slice(0, 2) || "ME"}</AvatarFallback>
   </Avatar>
 )
+
