@@ -1,4 +1,5 @@
 import type { ComponentProps, HTMLAttributes } from "react"
+import { useEffect, useRef, useState } from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
@@ -53,14 +54,59 @@ export const MessageContent = ({
   className,
   variant,
   ...props
-}: MessageContentProps) => (
-  <div
-    className={cn(messageContentVariants({ variant, className }))}
-    {...props}
-  >
-    {children}
-  </div>
-)
+}: MessageContentProps) => {
+  const elementRef = useRef<HTMLDivElement>(null)
+  
+  // Animation configuration state
+  const [glowColor, setGlowColor] = useState("#ff0000")
+  const [glowIntensity, setGlowIntensity] = useState(15)
+  const [glowSpeed, setGlowSpeed] = useState(2)
+  const [glowSpread, setGlowSpread] = useState(8)
+  
+  // Listen for animation configuration updates
+  useEffect(() => {
+    const element = elementRef.current
+    if (!element) return
+    
+    const handleAnimationUpdate = (event: CustomEvent) => {
+      const params = event.detail
+      if (params.glowColor !== undefined) setGlowColor(params.glowColor)
+      if (params.glowIntensity !== undefined) setGlowIntensity(params.glowIntensity)
+      if (params.glowSpeed !== undefined) setGlowSpeed(params.glowSpeed)
+      if (params.glowSpread !== undefined) setGlowSpread(params.glowSpread)
+    }
+    
+    element.addEventListener('animation:update', handleAnimationUpdate as EventListener)
+    return () => element.removeEventListener('animation:update', handleAnimationUpdate as EventListener)
+  }, [])
+
+  return (
+    <div
+      ref={elementRef}
+      data-config-id="MessageContent"
+      className={cn(messageContentVariants({ variant, className }))}
+      style={{
+        animation: `redGlowPulse ${glowSpeed}s ease-in-out infinite`,
+        boxShadow: `0 0 ${glowSpread}px ${glowColor}`,
+      }}
+      {...props}
+    >
+      {children}
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          @keyframes redGlowPulse {
+            0%, 100% {
+              box-shadow: 0 0 ${glowSpread}px ${glowColor};
+            }
+            50% {
+              box-shadow: 0 0 ${glowIntensity}px ${glowColor}, 0 0 ${glowIntensity * 1.5}px ${glowColor};
+            }
+          }
+        `
+      }} />
+    </div>
+  )
+}
 
 export type MessageAvatarProps = ComponentProps<typeof Avatar> & {
   src: string
@@ -78,3 +124,5 @@ export const MessageAvatar = ({
     <AvatarFallback>{name?.slice(0, 2) || "ME"}</AvatarFallback>
   </Avatar>
 )
+
+
