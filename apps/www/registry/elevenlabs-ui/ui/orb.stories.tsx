@@ -130,7 +130,7 @@ export const InteractiveDemo: Story = {
 
         <div className="space-y-6">
           <div className="flex justify-center">
-            <div className="relative h-40 w-40 rounded-full bg-muted p-2 shadow-[inset_0_2px_8px_rgba(0,0,0,0.1)] dark:shadow-[inset_0_2px_8px_rgba(0,0,0,0.5)]">
+            <div data-config-id="hookified" className="relative h-40 w-40 rounded-full bg-red-200 p-2 shadow-[inset_0_2px_8px_rgba(0,0,0,0.1)] dark:shadow-[inset_0_2px_8px_rgba(0,0,0,0.5)]">
               <div className="h-full w-full overflow-hidden rounded-full bg-background shadow-[inset_0_0_12px_rgba(0,0,0,0.05)] dark:shadow-[inset_0_0_12px_rgba(0,0,0,0.3)]">
                 <Orb agentState={agent} />
               </div>
@@ -340,4 +340,5 @@ export const ColorPaletteShowcase: Story = {
     },
   },
 };
+
 
