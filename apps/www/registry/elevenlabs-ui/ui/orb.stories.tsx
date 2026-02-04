@@ -190,7 +190,7 @@ export const MultipleOrbs: Story = {
     const [agent, setAgent] = useState<AgentState>(null);
 
     const orbColors: [string, string][] = [
-      ["#CADCFC", "#A0B9D1"],
+      ["#FF6B6B", "#DC2626"],
       ["#F6E7D8", "#E0CFC2"],
       ["#E5E7EB", "#9CA3AF"],
     ];
@@ -340,4 +340,5 @@ export const ColorPaletteShowcase: Story = {
     },
   },
 };
+
 
