@@ -55,7 +55,7 @@ export const MessageContent = ({
   ...props
 }: MessageContentProps) => (
   <div
-    className={cn(messageContentVariants({ variant, className }), "text-blue-500")}
+    className={cn(messageContentVariants({ variant, className }), "text-red-500")}
     data-config-id="MessageContent"
     {...props}
   >
@@ -79,6 +79,7 @@ export const MessageAvatar = ({
     <AvatarFallback>{name?.slice(0, 2) || "ME"}</AvatarFallback>
   </Avatar>
 )
+
 
 
 
