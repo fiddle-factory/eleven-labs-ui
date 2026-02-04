@@ -223,7 +223,7 @@ export const ConversationWithOrb: Story = {
 
 export const LongMessage: Story = {
   render: () => (
-    <div className="w-[600px] bg-background p-4">
+    <div className="w-[600px] p-4" style={{ backgroundColor: '#1e3a5f' }}>
       <Message from="assistant">
         <MessageAvatar src="/avatars/02.png" name="AI" />
         <MessageContent>
@@ -243,4 +243,5 @@ export const LongMessage: Story = {
     },
   },
 };
+
 
