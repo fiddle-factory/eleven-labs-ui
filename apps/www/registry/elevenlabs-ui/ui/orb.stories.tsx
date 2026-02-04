@@ -149,6 +149,7 @@ export const InteractiveDemo: Story = {
               size="sm"
               variant={agent === "listening" ? "default" : "outline"}
               onClick={() => setAgent("listening")}
+              className={agent !== "listening" ? "bg-red-900 hover:bg-red-800 text-white border-red-900" : ""}
             >
               Listening
             </Button>
@@ -340,4 +341,5 @@ export const ColorPaletteShowcase: Story = {
     },
   },
 };
+
 
