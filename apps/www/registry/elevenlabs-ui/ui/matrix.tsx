@@ -593,9 +593,11 @@ export const Matrix = React.forwardRef<HTMLDivElement, MatrixProps>(
                 transition: opacity ${transitionSpeed}ms ease-out, transform ${transitionSpeed / 2}ms ease-out;
                 transform-origin: center;
                 transform-box: fill-box;
+                color: red;
               }
               .matrix-pixel-active {
                 filter: url(#matrix-glow);
+                color: red;
               }
             `}
           </style>
