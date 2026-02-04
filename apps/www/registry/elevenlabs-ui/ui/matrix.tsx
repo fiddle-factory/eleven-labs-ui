@@ -429,7 +429,7 @@ export const Matrix = React.forwardRef<HTMLDivElement, MatrixProps>(
       size: initialSize = 10,
       gap: initialGap = 2,
       palette = {
-        on: "currentColor",
+        on: "#ef4444",
         off: "var(--muted-foreground)",
       },
       brightness: initialBrightness = 1,
