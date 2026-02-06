@@ -150,7 +150,7 @@ export const ChevronRight: Story = {
 // Examples - Retro Display
 export const RetroDisplay: Story = {
   render: () => (
-    <div className="bg-muted/30 rounded-lg border p-8">
+    <div className="bg-card rounded-lg border p-8">
       <Matrix
         rows={7}
         cols={7}

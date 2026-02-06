@@ -67,7 +67,7 @@ export const CyclingPhrases: Story = {
         </div>
 
         <div className="space-y-4">
-          <div className="flex items-center justify-center rounded-lg bg-muted/10 py-8">
+          <div className="flex items-center justify-center rounded-lg bg-muted/30 py-8">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
