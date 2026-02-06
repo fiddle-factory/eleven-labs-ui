@@ -53,14 +53,42 @@ export const MessageContent = ({
   className,
   variant,
   ...props
-}: MessageContentProps) => (
-  <div
-    className={cn(messageContentVariants({ variant, className }))}
-    {...props}
-  >
-    {children}
-  </div>
-)
+}: MessageContentProps) => {
+  // Inject scroll stripe animation keyframes
+  if (typeof document !== "undefined" && !document.querySelector("style[data-scroll-stripes]")) {
+    const style = document.createElement("style")
+    style.setAttribute("data-scroll-stripes", "true")
+    style.textContent = `
+      @keyframes scrollStripes {
+        from { background-position-x: 0%; }
+        to { background-position-x: 100%; }
+      }
+    `
+    document.head.appendChild(style)
+  }
+
+  return (
+    <div
+      className={cn(messageContentVariants({ variant, className }), "relative")}
+      {...props}
+    >
+      <div
+        className="absolute inset-0 pointer-events-none z-10"
+        style={{
+          backgroundImage: "linear-gradient(90deg, transparent 0 80%, rgba(255,255,255,0.15) 0 100%)",
+          backgroundSize: "8px 100%",
+          backgroundRepeat: "repeat",
+          animation: "scrollStripes 1s linear infinite",
+          animationTimeline: "view()",
+          animationRange: "entry 0% exit 100%",
+        }}
+      />
+      <div className="relative z-20">
+        {children}
+      </div>
+    </div>
+  )
+}
 
 export type MessageAvatarProps = ComponentProps<typeof Avatar> & {
   src: string
@@ -78,3 +106,5 @@ export const MessageAvatar = ({
     <AvatarFallback>{name?.slice(0, 2) || "ME"}</AvatarFallback>
   </Avatar>
 )
+
+
