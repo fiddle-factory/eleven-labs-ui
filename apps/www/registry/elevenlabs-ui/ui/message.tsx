@@ -7,6 +7,7 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "@/registry/elevenlabs-ui/ui/avatar"
+import { DataTunnelBackground } from "@/registry/elevenlabs-ui/ui/data-tunnel-background"
 
 export type MessageProps = HTMLAttributes<HTMLDivElement> & {
   from: "user" | "assistant"
@@ -55,10 +56,11 @@ export const MessageContent = ({
   ...props
 }: MessageContentProps) => (
   <div
-    className={cn(messageContentVariants({ variant, className }))}
+    className={cn(messageContentVariants({ variant, className }), "relative")}
     {...props}
   >
-    {children}
+    <DataTunnelBackground />
+    <div className="relative z-10">{children}</div>
   </div>
 )
 
@@ -78,3 +80,5 @@ export const MessageAvatar = ({
     <AvatarFallback>{name?.slice(0, 2) || "ME"}</AvatarFallback>
   </Avatar>
 )
+
+
