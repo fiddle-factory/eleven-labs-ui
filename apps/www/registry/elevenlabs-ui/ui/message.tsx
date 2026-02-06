@@ -55,10 +55,35 @@ export const MessageContent = ({
   ...props
 }: MessageContentProps) => (
   <div
-    className={cn(messageContentVariants({ variant, className }))}
+    className={cn(messageContentVariants({ variant, className }), "relative")}
+    style={{
+      // @ts-ignore - CSS custom property
+      "--x": "0%",
+    }}
     {...props}
   >
     {children}
+    <div
+      className="pointer-events-none absolute inset-0 animate-[picket-fence_1ms_linear] [animation-timeline:scroll()]"
+      style={{
+        backgroundImage: "linear-gradient(90deg, currentColor 0 80%, transparent 0 100%)",
+        backgroundSize: "8px 100%",
+        backgroundRepeat: "repeat",
+        backgroundPositionX: "var(--x)",
+        opacity: 0.15,
+      }}
+    />
+    <style jsx>{`
+      @property --x {
+        syntax: "<percentage>";
+        inherits: true;
+        initial-value: 0%;
+      }
+      @keyframes picket-fence {
+        from { --x: 0%; }
+        to { --x: 100%; }
+      }
+    `}</style>
   </div>
 )
 
@@ -78,3 +103,4 @@ export const MessageAvatar = ({
     <AvatarFallback>{name?.slice(0, 2) || "ME"}</AvatarFallback>
   </Avatar>
 )
+
