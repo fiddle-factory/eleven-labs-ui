@@ -312,7 +312,7 @@ export const InteractiveDemo: Story = {
 // Themed Demos
 export const RetroStyle: Story = {
   render: () => (
-    <div className="rounded-lg border bg-muted/30 p-8">
+    <div className="rounded-lg border bg-card p-8">
       <LiveWaveform
         active={false}
         processing={true}

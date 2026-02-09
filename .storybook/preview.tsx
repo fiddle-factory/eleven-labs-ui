@@ -89,7 +89,7 @@ const preview: Preview = {
       }, [darkMode, selectedTheme])
       
       return (
-        <div className="theme-container">
+        <div className="theme-container bg-background text-foreground min-h-[200px] p-6">
           <Story />
         </div>
       )
