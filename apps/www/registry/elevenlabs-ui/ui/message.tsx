@@ -24,7 +24,7 @@ export const Message = ({ className, from, ...props }: MessageProps) => (
 )
 
 const messageContentVariants = cva(
-  "is-user:dark flex flex-col gap-2 overflow-hidden rounded-lg text-sm text-green-300",
+  "is-user:dark flex flex-col gap-2 overflow-hidden rounded-lg text-sm text-red-300",
   {
     variants: {
       variant: {
@@ -78,6 +78,7 @@ export const MessageAvatar = ({
     <AvatarFallback>{name?.slice(0, 2) || "ME"}</AvatarFallback>
   </Avatar>
 )
+
 
 
 
