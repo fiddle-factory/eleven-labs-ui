@@ -150,11 +150,12 @@ export const VoiceButton = React.forwardRef<
         onClick={handleClick}
         disabled={isDisabled}
         className={cn(
-          "gap-2 transition-all duration-200",
+          "gap-2 transition-all duration-200 bg-pink-500 hover:bg-pink-600",
           size === "icon" && "relative",
           className
         )}
         aria-label={"Voice Button"}
+        data-config-id="Button"
         {...props}
       >
         {size !== "icon" && displayLabel && (
@@ -237,3 +238,4 @@ export const VoiceButton = React.forwardRef<
 )
 
 VoiceButton.displayName = "VoiceButton"
+
