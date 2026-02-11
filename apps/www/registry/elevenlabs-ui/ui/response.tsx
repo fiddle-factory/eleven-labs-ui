@@ -13,6 +13,7 @@ export const Response = memo(
       className={cn(
         "size-full [&>*:first-child]:mt-0 [&>*:last-child]:mb-0",
         "[&_pre]:border-dotted [&_pre>div:first-child]:border-b-dotted",
+        "[&_h1]:text-xs [&_h1]:text-white",
         className
       )}
       {...props}
@@ -22,4 +23,5 @@ export const Response = memo(
 )
 
 Response.displayName = "Response"
+
 
