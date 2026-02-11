@@ -12,6 +12,7 @@ export const Response = memo(
     <Streamdown
       className={cn(
         "size-full [&>*:first-child]:mt-0 [&>*:last-child]:mb-0",
+        "[&_pre]:border-dotted [&_pre>div:first-child]:border-b-dotted",
         className
       )}
       {...props}
@@ -21,3 +22,4 @@ export const Response = memo(
 )
 
 Response.displayName = "Response"
+
