@@ -417,9 +417,10 @@ const PlayButton = ({
         onPlayingChange(!playing)
         onClick?.(e)
       }}
-      className={cn("relative", className)}
+      className={cn("relative bg-blue-600 hover:bg-blue-700", className)}
       aria-label={playing ? "Pause" : "Play"}
       type="button"
+      data-config-id="Button"
     >
       {playing ? (
         <PauseIcon
@@ -652,3 +653,4 @@ export const exampleTracks = [
     url: "https://storage.googleapis.com/eleven-public-cdn/audio/ui-elevenlabs-io/09.mp3",
   },
 ]
+
