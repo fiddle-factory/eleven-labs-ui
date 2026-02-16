@@ -1,4 +1,4 @@
-import type { ComponentProps, HTMLAttributes } from "react"
+import { useEffect, useRef, useState, type ComponentProps, type HTMLAttributes } from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
@@ -53,14 +53,59 @@ export const MessageContent = ({
   className,
   variant,
   ...props
-}: MessageContentProps) => (
-  <div
-    className={cn(messageContentVariants({ variant, className }))}
-    {...props}
-  >
-    {children}
-  </div>
-)
+}: MessageContentProps) => {
+  const ref = useRef<HTMLDivElement>(null)
+  const [glowColor, setGlowColor] = useState("#3b82f6")
+  const [glowIntensity, setGlowIntensity] = useState(12)
+  const [glowSpread, setGlowSpread] = useState(4)
+  const [animSpeed, setAnimSpeed] = useState(2.5)
+  const [glowOpacity, setGlowOpacity] = useState(0.6)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const handler = (e: CustomEvent) => {
+      const p = e.detail
+      if (p.glowColor !== undefined) setGlowColor(p.glowColor)
+      if (p.glowIntensity !== undefined) setGlowIntensity(p.glowIntensity)
+      if (p.glowSpread !== undefined) setGlowSpread(p.glowSpread)
+      if (p.animSpeed !== undefined) setAnimSpeed(p.animSpeed)
+      if (p.glowOpacity !== undefined) setGlowOpacity(p.glowOpacity)
+    }
+    el.addEventListener("animation:update", handler as EventListener)
+    return () => el.removeEventListener("animation:update", handler as EventListener)
+  }, [])
+
+  const hexToRgb = (hex: string) => {
+    const h = hex.replace("#", "")
+    const n = parseInt(h, 16)
+    return `${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255}`
+  }
+
+  const keyframes = `
+    @keyframes blueGlow {
+      0%, 100% { box-shadow: 0 0 ${glowIntensity}px ${glowSpread}px rgba(${hexToRgb(glowColor)}, ${glowOpacity}); }
+      50% { box-shadow: 0 0 ${glowIntensity * 2}px ${glowSpread * 1.5}px rgba(${hexToRgb(glowColor)}, ${glowOpacity * 0.4}); }
+    }
+  `
+
+  return (
+    <>
+      <style dangerouslySetInnerHTML={{ __html: keyframes }} />
+      <div
+        ref={ref}
+        data-config-id="MessageContent"
+        className={cn(messageContentVariants({ variant, className }))}
+        style={{
+          animation: `blueGlow ${animSpeed}s ease-in-out infinite`,
+        }}
+        {...props}
+      >
+        {children}
+      </div>
+    </>
+  )
+}
 
 export type MessageAvatarProps = ComponentProps<typeof Avatar> & {
   src: string
@@ -78,3 +123,5 @@ export const MessageAvatar = ({
     <AvatarFallback>{name?.slice(0, 2) || "ME"}</AvatarFallback>
   </Avatar>
 )
+
+
