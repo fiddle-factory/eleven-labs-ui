@@ -68,7 +68,7 @@ If you'd like to contribute to ElevenLabs UI, please follow these steps:
 1. Fork the repository
 2. Create a new branch
 3. Make your changes to the components in the registry.
-4. Open a PR to the main branch.
+4. Open a PR to the game branch.
 
 Please read the [contributing guide](/CONTRIBUTING.md).
 
