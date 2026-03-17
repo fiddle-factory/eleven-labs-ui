@@ -330,7 +330,7 @@ export const AudioPlayerProgress = ({
         Number.isNaN(player.duration)
       }
     >
-      <SliderPrimitive.Track className="bg-muted relative h-[4px] w-full grow overflow-hidden rounded-full">
+      <SliderPrimitive.Track className="bg-white relative h-[4px] w-full grow overflow-hidden rounded-full">
         <SliderPrimitive.Range className="bg-primary absolute h-full" />
       </SliderPrimitive.Track>
       <SliderPrimitive.Thumb
@@ -652,3 +652,4 @@ export const exampleTracks = [
     url: "https://storage.googleapis.com/eleven-public-cdn/audio/ui-elevenlabs-io/09.mp3",
   },
 ]
+
