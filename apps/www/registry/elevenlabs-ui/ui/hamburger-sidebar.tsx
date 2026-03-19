@@ -76,7 +76,7 @@ export function HamburgerSidebar({
           </TooltipContent>
         </Tooltip>
 
-        <span className="text-sm font-semibold tracking-tight">Dashboard</span>
+        <span className="text-sm font-semibold tracking-tight" data-config-id="HamburgerSidebar-span-0">Title</span>
       </header>
 
       {/* ── sidebar panel ── */}
@@ -157,4 +157,5 @@ export function HamburgerSidebar({
     </div>
   )
 }
+
 
