@@ -4,7 +4,7 @@
 # II ElevenLabs UI
 
 
-[ElevenLabs UI](https://ui.elevenlabs.io) is a component library built on top of [shadcn/ui](https://ui.shadcn.com/) to help you build audio & agentic applications faster.
+[ElevenLabs UI](https://ui.elevenlabs.io) is a component library built on top of [shadcn/ui](https://ui.shadcn.com/) to help you build audio & agentic applications faster
 
 ## Overview
 
