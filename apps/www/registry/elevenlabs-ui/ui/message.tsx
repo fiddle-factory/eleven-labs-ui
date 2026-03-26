@@ -15,8 +15,8 @@ export type MessageProps = HTMLAttributes<HTMLDivElement> & {
 export const Message = ({ className, from, ...props }: MessageProps) => (
   <div
     className={cn(
-      "group flex w-full items-end justify-end gap-2 py-4",
-      from === "user" ? "is-user" : "is-assistant flex-row-reverse justify-end",
+      "group flex w-full items-end gap-2 py-1",
+      from === "user" ? "is-user justify-end" : "is-assistant justify-start",
       className
     )}
     {...props}
@@ -24,18 +24,21 @@ export const Message = ({ className, from, ...props }: MessageProps) => (
 )
 
 const messageContentVariants = cva(
-  "is-user:dark flex flex-col gap-2 overflow-hidden rounded-lg text-sm",
+  "flex flex-col gap-2 overflow-hidden text-sm leading-relaxed",
   {
     variants: {
       variant: {
         contained: [
-          "max-w-[80%] px-4 py-3",
-          "group-[.is-user]:bg-primary group-[.is-user]:text-primary-foreground",
-          "group-[.is-assistant]:bg-secondary group-[.is-assistant]:text-foreground",
+          "max-w-[75%] px-4 py-2.5",
+          "group-[.is-user]:rounded-[18px] group-[.is-user]:rounded-br-[4px]",
+          "group-[.is-user]:bg-[#0B93F6] group-[.is-user]:text-white",
+          "group-[.is-assistant]:rounded-[18px] group-[.is-assistant]:rounded-bl-[4px]",
+          "group-[.is-assistant]:bg-[#E5E5EA] group-[.is-assistant]:text-[#1C1C1E]",
         ],
         flat: [
-          "group-[.is-user]:max-w-[80%] group-[.is-user]:bg-secondary group-[.is-user]:px-4 group-[.is-user]:py-3 group-[.is-user]:text-foreground",
-          "group-[.is-assistant]:text-foreground",
+          "group-[.is-user]:max-w-[75%] group-[.is-user]:rounded-[18px] group-[.is-user]:rounded-br-[4px]",
+          "group-[.is-user]:bg-[#0B93F6] group-[.is-user]:px-4 group-[.is-user]:py-2.5 group-[.is-user]:text-white",
+          "group-[.is-assistant]:text-[#1C1C1E]",
         ],
       },
     },
@@ -78,3 +81,5 @@ export const MessageAvatar = ({
     <AvatarFallback>{name?.slice(0, 2) || "ME"}</AvatarFallback>
   </Avatar>
 )
+
+
