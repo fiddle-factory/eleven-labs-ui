@@ -331,13 +331,13 @@ export const AudioPlayerProgress = ({
       }
     >
       <SliderPrimitive.Track className="bg-muted relative h-[4px] w-full grow overflow-hidden rounded-full">
-        <SliderPrimitive.Range className="absolute h-full" style={{ backgroundColor: "var(--accent-foreground, #ea580c)", background: "linear-gradient(to right, #f97316, #ea580c)" }} />
+        <SliderPrimitive.Range className="absolute h-full" style={{ background: "linear-gradient(to right, #fb923c, #ea580c)" }} />
       </SliderPrimitive.Track>
       <SliderPrimitive.Thumb
         className="relative flex h-0 w-0 items-center justify-center opacity-0 group-hover/player:opacity-100 focus-visible:opacity-100 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50"
         data-slot="slider-thumb"
       >
-        <div className="absolute size-3 rounded-full" style={{ backgroundColor: "#f97316" }} />
+        <div className="absolute size-3 rounded-full" style={{ backgroundColor: "#f97316", boxShadow: "0 0 0 2px rgba(249,115,22,0.3)" }} />
       </SliderPrimitive.Thumb>
     </SliderPrimitive.Root>
   )
@@ -388,7 +388,7 @@ function Spinner({ className }: SpinnerProps) {
         "border-muted size-3.5 animate-spin rounded-full border-2",
         className
       )}
-      style={{ borderTopColor: "#f97316" }}
+      style={{ borderTopColor: "#ea580c" }}
       role="status"
       aria-label="Loading"
     >
@@ -653,5 +653,7 @@ export const exampleTracks = [
     url: "https://storage.googleapis.com/eleven-public-cdn/audio/ui-elevenlabs-io/09.mp3",
   },
 ]
+
+
 
 
