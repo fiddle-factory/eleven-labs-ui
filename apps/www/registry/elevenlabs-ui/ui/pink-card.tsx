@@ -11,18 +11,18 @@ function PinkCard({ className, title, description, children, ...props }: PinkCar
   return (
     <div
       className={cn(
-        "rounded-xl border border-pink-200 bg-pink-100 p-6 shadow-sm dark:border-pink-900 dark:bg-pink-950",
+        "rounded-xl border border-red-200 bg-red-100 p-6 shadow-sm dark:border-red-900 dark:bg-red-950",
         className
       )}
       {...props}
     >
       {title && (
-        <h3 className="mb-1 text-lg font-semibold text-pink-900 dark:text-pink-100">
+        <h3 className="mb-1 text-lg font-semibold text-red-900 dark:text-red-100">
           {title}
         </h3>
       )}
       {description && (
-        <p className="text-sm text-pink-700 dark:text-pink-300">{description}</p>
+        <p className="text-sm text-red-700 dark:text-red-300">{description}</p>
       )}
       {children}
     </div>
@@ -30,4 +30,7 @@ function PinkCard({ className, title, description, children, ...props }: PinkCar
 }
 
 export { PinkCard }
+
+
+
 
