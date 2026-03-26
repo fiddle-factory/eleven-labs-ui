@@ -17,12 +17,12 @@ function PinkCard({ className, title, description, children, ...props }: PinkCar
       {...props}
     >
       {title && (
-        <h3 className="mb-1 text-lg font-semibold text-white dark:text-red-100">
+        <h3 className="mb-1 text-lg font-bold text-black dark:text-black">
           {title}
         </h3>
       )}
       {description && (
-        <p className="text-sm text-red-100 dark:text-red-300">{description}</p>
+        <p className="text-sm font-bold text-black dark:text-black">{description}</p>
       )}
       {children}
     </div>
@@ -30,6 +30,7 @@ function PinkCard({ className, title, description, children, ...props }: PinkCar
 }
 
 export { PinkCard }
+
 
 
 
