@@ -1,0 +1,1541 @@
+{
+  "version": "v3",
+  "tokens": [
+    {
+      "name": "0",
+      "category": "spacing",
+      "subcategory": "default",
+      "value": "0px",
+      "cssVariable": "",
+      "classes": [
+        "p-0",
+        "px-0",
+        "py-0",
+        "m-0",
+        "mx-0",
+        "my-0",
+        "gap-0"
+      ]
+    },
+    {
+      "name": "0.5",
+      "category": "spacing",
+      "subcategory": "default",
+      "value": "0.125rem",
+      "cssVariable": "",
+      "classes": [
+        "p-0.5",
+        "px-0.5",
+        "py-0.5",
+        "m-0.5",
+        "mx-0.5",
+        "my-0.5",
+        "gap-0.5"
+      ]
+    },
+    {
+      "name": "1",
+      "category": "spacing",
+      "subcategory": "default",
+      "value": "0.25rem",
+      "cssVariable": "",
+      "classes": [
+        "p-1",
+        "px-1",
+        "py-1",
+        "m-1",
+        "mx-1",
+        "my-1",
+        "gap-1"
+      ]
+    },
+    {
+      "name": "1.5",
+      "category": "spacing",
+      "subcategory": "default",
+      "value": "0.375rem",
+      "cssVariable": "",
+      "classes": [
+        "p-1.5",
+        "px-1.5",
+        "py-1.5",
+        "m-1.5",
+        "mx-1.5",
+        "my-1.5",
+        "gap-1.5"
+      ]
+    },
+    {
+      "name": "2",
+      "category": "spacing",
+      "subcategory": "default",
+      "value": "0.5rem",
+      "cssVariable": "",
+      "classes": [
+        "p-2",
+        "px-2",
+        "py-2",
+        "m-2",
+        "mx-2",
+        "my-2",
+        "gap-2"
+      ]
+    },
+    {
+      "name": "2.5",
+      "category": "spacing",
+      "subcategory": "default",
+      "value": "0.625rem",
+      "cssVariable": "",
+      "classes": [
+        "p-2.5",
+        "px-2.5",
+        "py-2.5",
+        "m-2.5",
+        "mx-2.5",
+        "my-2.5",
+        "gap-2.5"
+      ]
+    },
+    {
+      "name": "3",
+      "category": "spacing",
+      "subcategory": "default",
+      "value": "0.75rem",
+      "cssVariable": "",
+      "classes": [
+        "p-3",
+        "px-3",
+        "py-3",
+        "m-3",
+        "mx-3",
+        "my-3",
+        "gap-3"
+      ]
+    },
+    {
+      "name": "3.5",
+      "category": "spacing",
+      "subcategory": "default",
+      "value": "0.875rem",
+      "cssVariable": "",
+      "classes": [
+        "p-3.5",
+        "px-3.5",
+        "py-3.5",
+        "m-3.5",
+        "mx-3.5",
+        "my-3.5",
+        "gap-3.5"
+      ]
+    },
+    {
+      "name": "4",
+      "category": "spacing",
+      "subcategory": "default",
+      "value": "1rem",
+      "cssVariable": "",
+      "classes": [
+        "p-4",
+        "px-4",
+        "py-4",
+        "m-4",
+        "mx-4",
+        "my-4",
+        "gap-4"
+      ]
+    },
+    {
+      "name": "5",
+      "category": "spacing",
+      "subcategory": "default",
+      "value": "1.25rem",
+      "cssVariable": "",
+      "classes": [
+        "p-5",
+        "px-5",
+        "py-5",
+        "m-5",
+        "mx-5",
+        "my-5",
+        "gap-5"
+      ]
+    },
+    {
+      "name": "6",
+      "category": "spacing",
+      "subcategory": "default",
+      "value": "1.5rem",
+      "cssVariable": "",
+      "classes": [
+        "p-6",
+        "px-6",
+        "py-6",
+        "m-6",
+        "mx-6",
+        "my-6",
+        "gap-6"
+      ]
+    },
+    {
+      "name": "7",
+      "category": "spacing",
+      "subcategory": "default",
+      "value": "1.75rem",
+      "cssVariable": "",
+      "classes": [
+        "p-7",
+        "px-7",
+        "py-7",
+        "m-7",
+        "mx-7",
+        "my-7",
+        "gap-7"
+      ]
+    },
+    {
+      "name": "8",
+      "category": "spacing",
+      "subcategory": "default",
+      "value": "2rem",
+      "cssVariable": "",
+      "classes": [
+        "p-8",
+        "px-8",
+        "py-8",
+        "m-8",
+        "mx-8",
+        "my-8",
+        "gap-8"
+      ]
+    },
+    {
+      "name": "9",
+      "category": "spacing",
+      "subcategory": "default",
+      "value": "2.25rem",
+      "cssVariable": "",
+      "classes": [
+        "p-9",
+        "px-9",
+        "py-9",
+        "m-9",
+        "mx-9",
+        "my-9",
+        "gap-9"
+      ]
+    },
+    {
+      "name": "10",
+      "category": "spacing",
+      "subcategory": "default",
+      "value": "2.5rem",
+      "cssVariable": "",
+      "classes": [
+        "p-10",
+        "px-10",
+        "py-10",
+        "m-10",
+        "mx-10",
+        "my-10",
+        "gap-10"
+      ]
+    },
+    {
+      "name": "11",
+      "category": "spacing",
+      "subcategory": "default",
+      "value": "2.75rem",
+      "cssVariable": "",
+      "classes": [
+        "p-11",
+        "px-11",
+        "py-11",
+        "m-11",
+        "mx-11",
+        "my-11",
+        "gap-11"
+      ]
+    },
+    {
+      "name": "12",
+      "category": "spacing",
+      "subcategory": "default",
+      "value": "3rem",
+      "cssVariable": "",
+      "classes": [
+        "p-12",
+        "px-12",
+        "py-12",
+        "m-12",
+        "mx-12",
+        "my-12",
+        "gap-12"
+      ]
+    },
+    {
+      "name": "14",
+      "category": "spacing",
+      "subcategory": "default",
+      "value": "3.5rem",
+      "cssVariable": "",
+      "classes": [
+        "p-14",
+        "px-14",
+        "py-14",
+        "m-14",
+        "mx-14",
+        "my-14",
+        "gap-14"
+      ]
+    },
+    {
+      "name": "16",
+      "category": "spacing",
+      "subcategory": "default",
+      "value": "4rem",
+      "cssVariable": "",
+      "classes": [
+        "p-16",
+        "px-16",
+        "py-16",
+        "m-16",
+        "mx-16",
+        "my-16",
+        "gap-16"
+      ]
+    },
+    {
+      "name": "20",
+      "category": "spacing",
+      "subcategory": "default",
+      "value": "5rem",
+      "cssVariable": "",
+      "classes": [
+        "p-20",
+        "px-20",
+        "py-20",
+        "m-20",
+        "mx-20",
+        "my-20",
+        "gap-20"
+      ]
+    },
+    {
+      "name": "24",
+      "category": "spacing",
+      "subcategory": "default",
+      "value": "6rem",
+      "cssVariable": "",
+      "classes": [
+        "p-24",
+        "px-24",
+        "py-24",
+        "m-24",
+        "mx-24",
+        "my-24",
+        "gap-24"
+      ]
+    },
+    {
+      "name": "xs",
+      "category": "font-size",
+      "subcategory": "default",
+      "value": "0.75rem",
+      "cssVariable": "",
+      "classes": [
+        "text-xs"
+      ]
+    },
+    {
+      "name": "sm",
+      "category": "font-size",
+      "subcategory": "default",
+      "value": "0.875rem",
+      "cssVariable": "",
+      "classes": [
+        "text-sm"
+      ]
+    },
+    {
+      "name": "base",
+      "category": "font-size",
+      "subcategory": "default",
+      "value": "1rem",
+      "cssVariable": "",
+      "classes": [
+        "text-base"
+      ]
+    },
+    {
+      "name": "lg",
+      "category": "font-size",
+      "subcategory": "default",
+      "value": "1.125rem",
+      "cssVariable": "",
+      "classes": [
+        "text-lg"
+      ]
+    },
+    {
+      "name": "xl",
+      "category": "font-size",
+      "subcategory": "default",
+      "value": "1.25rem",
+      "cssVariable": "",
+      "classes": [
+        "text-xl"
+      ]
+    },
+    {
+      "name": "2xl",
+      "category": "font-size",
+      "subcategory": "default",
+      "value": "1.5rem",
+      "cssVariable": "",
+      "classes": [
+        "text-2xl"
+      ]
+    },
+    {
+      "name": "3xl",
+      "category": "font-size",
+      "subcategory": "default",
+      "value": "1.875rem",
+      "cssVariable": "",
+      "classes": [
+        "text-3xl"
+      ]
+    },
+    {
+      "name": "4xl",
+      "category": "font-size",
+      "subcategory": "default",
+      "value": "2.25rem",
+      "cssVariable": "",
+      "classes": [
+        "text-4xl"
+      ]
+    },
+    {
+      "name": "5xl",
+      "category": "font-size",
+      "subcategory": "default",
+      "value": "3rem",
+      "cssVariable": "",
+      "classes": [
+        "text-5xl"
+      ]
+    },
+    {
+      "name": "6xl",
+      "category": "font-size",
+      "subcategory": "default",
+      "value": "3.75rem",
+      "cssVariable": "",
+      "classes": [
+        "text-6xl"
+      ]
+    },
+    {
+      "name": "7xl",
+      "category": "font-size",
+      "subcategory": "default",
+      "value": "4.5rem",
+      "cssVariable": "",
+      "classes": [
+        "text-7xl"
+      ]
+    },
+    {
+      "name": "8xl",
+      "category": "font-size",
+      "subcategory": "default",
+      "value": "6rem",
+      "cssVariable": "",
+      "classes": [
+        "text-8xl"
+      ]
+    },
+    {
+      "name": "9xl",
+      "category": "font-size",
+      "subcategory": "default",
+      "value": "8rem",
+      "cssVariable": "",
+      "classes": [
+        "text-9xl"
+      ]
+    },
+    {
+      "name": "thin",
+      "category": "font-weight",
+      "subcategory": "default",
+      "value": "100",
+      "cssVariable": "",
+      "classes": [
+        "font-thin"
+      ]
+    },
+    {
+      "name": "extralight",
+      "category": "font-weight",
+      "subcategory": "default",
+      "value": "200",
+      "cssVariable": "",
+      "classes": [
+        "font-extralight"
+      ]
+    },
+    {
+      "name": "light",
+      "category": "font-weight",
+      "subcategory": "default",
+      "value": "300",
+      "cssVariable": "",
+      "classes": [
+        "font-light"
+      ]
+    },
+    {
+      "name": "normal",
+      "category": "font-weight",
+      "subcategory": "default",
+      "value": "400",
+      "cssVariable": "",
+      "classes": [
+        "font-normal"
+      ]
+    },
+    {
+      "name": "medium",
+      "category": "font-weight",
+      "subcategory": "default",
+      "value": "500",
+      "cssVariable": "",
+      "classes": [
+        "font-medium"
+      ]
+    },
+    {
+      "name": "semibold",
+      "category": "font-weight",
+      "subcategory": "default",
+      "value": "600",
+      "cssVariable": "",
+      "classes": [
+        "font-semibold"
+      ]
+    },
+    {
+      "name": "bold",
+      "category": "font-weight",
+      "subcategory": "default",
+      "value": "700",
+      "cssVariable": "",
+      "classes": [
+        "font-bold"
+      ]
+    },
+    {
+      "name": "extrabold",
+      "category": "font-weight",
+      "subcategory": "default",
+      "value": "800",
+      "cssVariable": "",
+      "classes": [
+        "font-extrabold"
+      ]
+    },
+    {
+      "name": "black",
+      "category": "font-weight",
+      "subcategory": "default",
+      "value": "900",
+      "cssVariable": "",
+      "classes": [
+        "font-black"
+      ]
+    },
+    {
+      "name": "none",
+      "category": "radius",
+      "subcategory": "default",
+      "value": "0px",
+      "cssVariable": "",
+      "classes": [
+        "rounded-none"
+      ]
+    },
+    {
+      "name": "sm",
+      "category": "radius",
+      "subcategory": "default",
+      "value": "0.125rem",
+      "cssVariable": "",
+      "classes": [
+        "rounded-sm"
+      ]
+    },
+    {
+      "name": "md",
+      "category": "radius",
+      "subcategory": "default",
+      "value": "0.375rem",
+      "cssVariable": "",
+      "classes": [
+        "rounded-md"
+      ]
+    },
+    {
+      "name": "lg",
+      "category": "radius",
+      "subcategory": "default",
+      "value": "0.5rem",
+      "cssVariable": "",
+      "classes": [
+        "rounded-lg"
+      ]
+    },
+    {
+      "name": "xl",
+      "category": "radius",
+      "subcategory": "default",
+      "value": "0.75rem",
+      "cssVariable": "",
+      "classes": [
+        "rounded-xl"
+      ]
+    },
+    {
+      "name": "2xl",
+      "category": "radius",
+      "subcategory": "default",
+      "value": "1rem",
+      "cssVariable": "",
+      "classes": [
+        "rounded-2xl"
+      ]
+    },
+    {
+      "name": "3xl",
+      "category": "radius",
+      "subcategory": "default",
+      "value": "1.5rem",
+      "cssVariable": "",
+      "classes": [
+        "rounded-3xl"
+      ]
+    },
+    {
+      "name": "full",
+      "category": "radius",
+      "subcategory": "default",
+      "value": "9999px",
+      "cssVariable": "",
+      "classes": [
+        "rounded-full"
+      ]
+    },
+    {
+      "name": "sm",
+      "category": "shadow",
+      "subcategory": "default",
+      "value": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+      "cssVariable": "",
+      "classes": [
+        "shadow-sm"
+      ]
+    },
+    {
+      "name": "md",
+      "category": "shadow",
+      "subcategory": "default",
+      "value": "0 4px 6px -1px rgb(0 0 0 / 0.1)",
+      "cssVariable": "",
+      "classes": [
+        "shadow-md"
+      ]
+    },
+    {
+      "name": "lg",
+      "category": "shadow",
+      "subcategory": "default",
+      "value": "0 10px 15px -3px rgb(0 0 0 / 0.1)",
+      "cssVariable": "",
+      "classes": [
+        "shadow-lg"
+      ]
+    },
+    {
+      "name": "xl",
+      "category": "shadow",
+      "subcategory": "default",
+      "value": "0 20px 25px -5px rgb(0 0 0 / 0.1)",
+      "cssVariable": "",
+      "classes": [
+        "shadow-xl"
+      ]
+    },
+    {
+      "name": "2xl",
+      "category": "shadow",
+      "subcategory": "default",
+      "value": "0 25px 50px -12px rgb(0 0 0 / 0.25)",
+      "cssVariable": "",
+      "classes": [
+        "shadow-2xl"
+      ]
+    },
+    {
+      "name": "inner",
+      "category": "shadow",
+      "subcategory": "default",
+      "value": "inset 0 2px 4px 0 rgb(0 0 0 / 0.05)",
+      "cssVariable": "",
+      "classes": [
+        "shadow-inner"
+      ]
+    },
+    {
+      "name": "none",
+      "category": "shadow",
+      "subcategory": "default",
+      "value": "none",
+      "cssVariable": "",
+      "classes": [
+        "shadow-none"
+      ]
+    },
+    {
+      "name": "0",
+      "category": "opacity",
+      "subcategory": "default",
+      "value": "0",
+      "cssVariable": "",
+      "classes": [
+        "opacity-0"
+      ]
+    },
+    {
+      "name": "5",
+      "category": "opacity",
+      "subcategory": "default",
+      "value": "0.05",
+      "cssVariable": "",
+      "classes": [
+        "opacity-5"
+      ]
+    },
+    {
+      "name": "10",
+      "category": "opacity",
+      "subcategory": "default",
+      "value": "0.1",
+      "cssVariable": "",
+      "classes": [
+        "opacity-10"
+      ]
+    },
+    {
+      "name": "20",
+      "category": "opacity",
+      "subcategory": "default",
+      "value": "0.2",
+      "cssVariable": "",
+      "classes": [
+        "opacity-20"
+      ]
+    },
+    {
+      "name": "25",
+      "category": "opacity",
+      "subcategory": "default",
+      "value": "0.25",
+      "cssVariable": "",
+      "classes": [
+        "opacity-25"
+      ]
+    },
+    {
+      "name": "30",
+      "category": "opacity",
+      "subcategory": "default",
+      "value": "0.3",
+      "cssVariable": "",
+      "classes": [
+        "opacity-30"
+      ]
+    },
+    {
+      "name": "40",
+      "category": "opacity",
+      "subcategory": "default",
+      "value": "0.4",
+      "cssVariable": "",
+      "classes": [
+        "opacity-40"
+      ]
+    },
+    {
+      "name": "50",
+      "category": "opacity",
+      "subcategory": "default",
+      "value": "0.5",
+      "cssVariable": "",
+      "classes": [
+        "opacity-50"
+      ]
+    },
+    {
+      "name": "60",
+      "category": "opacity",
+      "subcategory": "default",
+      "value": "0.6",
+      "cssVariable": "",
+      "classes": [
+        "opacity-60"
+      ]
+    },
+    {
+      "name": "70",
+      "category": "opacity",
+      "subcategory": "default",
+      "value": "0.7",
+      "cssVariable": "",
+      "classes": [
+        "opacity-70"
+      ]
+    },
+    {
+      "name": "75",
+      "category": "opacity",
+      "subcategory": "default",
+      "value": "0.75",
+      "cssVariable": "",
+      "classes": [
+        "opacity-75"
+      ]
+    },
+    {
+      "name": "80",
+      "category": "opacity",
+      "subcategory": "default",
+      "value": "0.8",
+      "cssVariable": "",
+      "classes": [
+        "opacity-80"
+      ]
+    },
+    {
+      "name": "90",
+      "category": "opacity",
+      "subcategory": "default",
+      "value": "0.9",
+      "cssVariable": "",
+      "classes": [
+        "opacity-90"
+      ]
+    },
+    {
+      "name": "95",
+      "category": "opacity",
+      "subcategory": "default",
+      "value": "0.95",
+      "cssVariable": "",
+      "classes": [
+        "opacity-95"
+      ]
+    },
+    {
+      "name": "100",
+      "category": "opacity",
+      "subcategory": "default",
+      "value": "1",
+      "cssVariable": "",
+      "classes": [
+        "opacity-100"
+      ]
+    },
+    {
+      "name": "none",
+      "category": "leading",
+      "subcategory": "default",
+      "value": "1",
+      "cssVariable": "",
+      "classes": [
+        "leading-none"
+      ]
+    },
+    {
+      "name": "tight",
+      "category": "leading",
+      "subcategory": "default",
+      "value": "1.25",
+      "cssVariable": "",
+      "classes": [
+        "leading-tight"
+      ]
+    },
+    {
+      "name": "snug",
+      "category": "leading",
+      "subcategory": "default",
+      "value": "1.375",
+      "cssVariable": "",
+      "classes": [
+        "leading-snug"
+      ]
+    },
+    {
+      "name": "normal",
+      "category": "leading",
+      "subcategory": "default",
+      "value": "1.5",
+      "cssVariable": "",
+      "classes": [
+        "leading-normal"
+      ]
+    },
+    {
+      "name": "relaxed",
+      "category": "leading",
+      "subcategory": "default",
+      "value": "1.625",
+      "cssVariable": "",
+      "classes": [
+        "leading-relaxed"
+      ]
+    },
+    {
+      "name": "loose",
+      "category": "leading",
+      "subcategory": "default",
+      "value": "2",
+      "cssVariable": "",
+      "classes": [
+        "leading-loose"
+      ]
+    },
+    {
+      "name": "tighter",
+      "category": "tracking",
+      "subcategory": "default",
+      "value": "-0.05em",
+      "cssVariable": "",
+      "classes": [
+        "tracking-tighter"
+      ]
+    },
+    {
+      "name": "tight",
+      "category": "tracking",
+      "subcategory": "default",
+      "value": "-0.025em",
+      "cssVariable": "",
+      "classes": [
+        "tracking-tight"
+      ]
+    },
+    {
+      "name": "normal",
+      "category": "tracking",
+      "subcategory": "default",
+      "value": "0em",
+      "cssVariable": "",
+      "classes": [
+        "tracking-normal"
+      ]
+    },
+    {
+      "name": "wide",
+      "category": "tracking",
+      "subcategory": "default",
+      "value": "0.025em",
+      "cssVariable": "",
+      "classes": [
+        "tracking-wide"
+      ]
+    },
+    {
+      "name": "wider",
+      "category": "tracking",
+      "subcategory": "default",
+      "value": "0.05em",
+      "cssVariable": "",
+      "classes": [
+        "tracking-wider"
+      ]
+    },
+    {
+      "name": "widest",
+      "category": "tracking",
+      "subcategory": "default",
+      "value": "0.1em",
+      "cssVariable": "",
+      "classes": [
+        "tracking-widest"
+      ]
+    },
+    {
+      "name": "0",
+      "category": "border-width",
+      "subcategory": "default",
+      "value": "0px",
+      "cssVariable": "",
+      "classes": [
+        "border-0"
+      ]
+    },
+    {
+      "name": "2",
+      "category": "border-width",
+      "subcategory": "default",
+      "value": "2px",
+      "cssVariable": "",
+      "classes": [
+        "border-2"
+      ]
+    },
+    {
+      "name": "4",
+      "category": "border-width",
+      "subcategory": "default",
+      "value": "4px",
+      "cssVariable": "",
+      "classes": [
+        "border-4"
+      ]
+    },
+    {
+      "name": "8",
+      "category": "border-width",
+      "subcategory": "default",
+      "value": "8px",
+      "cssVariable": "",
+      "classes": [
+        "border-8"
+      ]
+    },
+    {
+      "name": "xs",
+      "category": "max-width",
+      "subcategory": "default",
+      "value": "20rem",
+      "cssVariable": "",
+      "classes": [
+        "max-w-xs"
+      ]
+    },
+    {
+      "name": "sm",
+      "category": "max-width",
+      "subcategory": "default",
+      "value": "24rem",
+      "cssVariable": "",
+      "classes": [
+        "max-w-sm"
+      ]
+    },
+    {
+      "name": "md",
+      "category": "max-width",
+      "subcategory": "default",
+      "value": "28rem",
+      "cssVariable": "",
+      "classes": [
+        "max-w-md"
+      ]
+    },
+    {
+      "name": "lg",
+      "category": "max-width",
+      "subcategory": "default",
+      "value": "32rem",
+      "cssVariable": "",
+      "classes": [
+        "max-w-lg"
+      ]
+    },
+    {
+      "name": "xl",
+      "category": "max-width",
+      "subcategory": "default",
+      "value": "36rem",
+      "cssVariable": "",
+      "classes": [
+        "max-w-xl"
+      ]
+    },
+    {
+      "name": "2xl",
+      "category": "max-width",
+      "subcategory": "default",
+      "value": "42rem",
+      "cssVariable": "",
+      "classes": [
+        "max-w-2xl"
+      ]
+    },
+    {
+      "name": "3xl",
+      "category": "max-width",
+      "subcategory": "default",
+      "value": "48rem",
+      "cssVariable": "",
+      "classes": [
+        "max-w-3xl"
+      ]
+    },
+    {
+      "name": "4xl",
+      "category": "max-width",
+      "subcategory": "default",
+      "value": "56rem",
+      "cssVariable": "",
+      "classes": [
+        "max-w-4xl"
+      ]
+    },
+    {
+      "name": "5xl",
+      "category": "max-width",
+      "subcategory": "default",
+      "value": "64rem",
+      "cssVariable": "",
+      "classes": [
+        "max-w-5xl"
+      ]
+    },
+    {
+      "name": "6xl",
+      "category": "max-width",
+      "subcategory": "default",
+      "value": "72rem",
+      "cssVariable": "",
+      "classes": [
+        "max-w-6xl"
+      ]
+    },
+    {
+      "name": "7xl",
+      "category": "max-width",
+      "subcategory": "default",
+      "value": "80rem",
+      "cssVariable": "",
+      "classes": [
+        "max-w-7xl"
+      ]
+    },
+    {
+      "name": "full",
+      "category": "max-width",
+      "subcategory": "default",
+      "value": "100%",
+      "cssVariable": "",
+      "classes": [
+        "max-w-full"
+      ]
+    },
+    {
+      "name": "none",
+      "category": "max-width",
+      "subcategory": "default",
+      "value": "none",
+      "cssVariable": "",
+      "classes": [
+        "max-w-none"
+      ]
+    },
+    {
+      "name": "0",
+      "category": "width",
+      "subcategory": "default",
+      "value": "0px",
+      "cssVariable": "",
+      "classes": [
+        "w-0"
+      ]
+    },
+    {
+      "name": "1",
+      "category": "width",
+      "subcategory": "default",
+      "value": "0.25rem",
+      "cssVariable": "",
+      "classes": [
+        "w-1"
+      ]
+    },
+    {
+      "name": "2",
+      "category": "width",
+      "subcategory": "default",
+      "value": "0.5rem",
+      "cssVariable": "",
+      "classes": [
+        "w-2"
+      ]
+    },
+    {
+      "name": "4",
+      "category": "width",
+      "subcategory": "default",
+      "value": "1rem",
+      "cssVariable": "",
+      "classes": [
+        "w-4"
+      ]
+    },
+    {
+      "name": "8",
+      "category": "width",
+      "subcategory": "default",
+      "value": "2rem",
+      "cssVariable": "",
+      "classes": [
+        "w-8"
+      ]
+    },
+    {
+      "name": "12",
+      "category": "width",
+      "subcategory": "default",
+      "value": "3rem",
+      "cssVariable": "",
+      "classes": [
+        "w-12"
+      ]
+    },
+    {
+      "name": "16",
+      "category": "width",
+      "subcategory": "default",
+      "value": "4rem",
+      "cssVariable": "",
+      "classes": [
+        "w-16"
+      ]
+    },
+    {
+      "name": "20",
+      "category": "width",
+      "subcategory": "default",
+      "value": "5rem",
+      "cssVariable": "",
+      "classes": [
+        "w-20"
+      ]
+    },
+    {
+      "name": "24",
+      "category": "width",
+      "subcategory": "default",
+      "value": "6rem",
+      "cssVariable": "",
+      "classes": [
+        "w-24"
+      ]
+    },
+    {
+      "name": "full",
+      "category": "width",
+      "subcategory": "default",
+      "value": "100%",
+      "cssVariable": "",
+      "classes": [
+        "w-full"
+      ]
+    },
+    {
+      "name": "screen",
+      "category": "width",
+      "subcategory": "default",
+      "value": "100vw",
+      "cssVariable": "",
+      "classes": [
+        "w-screen"
+      ]
+    },
+    {
+      "name": "auto",
+      "category": "width",
+      "subcategory": "default",
+      "value": "auto",
+      "cssVariable": "",
+      "classes": [
+        "w-auto"
+      ]
+    },
+    {
+      "name": "0",
+      "category": "height",
+      "subcategory": "default",
+      "value": "0px",
+      "cssVariable": "",
+      "classes": [
+        "h-0"
+      ]
+    },
+    {
+      "name": "1",
+      "category": "height",
+      "subcategory": "default",
+      "value": "0.25rem",
+      "cssVariable": "",
+      "classes": [
+        "h-1"
+      ]
+    },
+    {
+      "name": "2",
+      "category": "height",
+      "subcategory": "default",
+      "value": "0.5rem",
+      "cssVariable": "",
+      "classes": [
+        "h-2"
+      ]
+    },
+    {
+      "name": "4",
+      "category": "height",
+      "subcategory": "default",
+      "value": "1rem",
+      "cssVariable": "",
+      "classes": [
+        "h-4"
+      ]
+    },
+    {
+      "name": "8",
+      "category": "height",
+      "subcategory": "default",
+      "value": "2rem",
+      "cssVariable": "",
+      "classes": [
+        "h-8"
+      ]
+    },
+    {
+      "name": "12",
+      "category": "height",
+      "subcategory": "default",
+      "value": "3rem",
+      "cssVariable": "",
+      "classes": [
+        "h-12"
+      ]
+    },
+    {
+      "name": "16",
+      "category": "height",
+      "subcategory": "default",
+      "value": "4rem",
+      "cssVariable": "",
+      "classes": [
+        "h-16"
+      ]
+    },
+    {
+      "name": "20",
+      "category": "height",
+      "subcategory": "default",
+      "value": "5rem",
+      "cssVariable": "",
+      "classes": [
+        "h-20"
+      ]
+    },
+    {
+      "name": "24",
+      "category": "height",
+      "subcategory": "default",
+      "value": "6rem",
+      "cssVariable": "",
+      "classes": [
+        "h-24"
+      ]
+    },
+    {
+      "name": "full",
+      "category": "height",
+      "subcategory": "default",
+      "value": "100%",
+      "cssVariable": "",
+      "classes": [
+        "h-full"
+      ]
+    },
+    {
+      "name": "screen",
+      "category": "height",
+      "subcategory": "default",
+      "value": "100vh",
+      "cssVariable": "",
+      "classes": [
+        "h-screen"
+      ]
+    },
+    {
+      "name": "auto",
+      "category": "height",
+      "subcategory": "default",
+      "value": "auto",
+      "cssVariable": "",
+      "classes": [
+        "h-auto"
+      ]
+    },
+    {
+      "name": "0",
+      "category": "z-index",
+      "subcategory": "default",
+      "value": "0",
+      "cssVariable": "",
+      "classes": [
+        "z-0"
+      ]
+    },
+    {
+      "name": "10",
+      "category": "z-index",
+      "subcategory": "default",
+      "value": "10",
+      "cssVariable": "",
+      "classes": [
+        "z-10"
+      ]
+    },
+    {
+      "name": "20",
+      "category": "z-index",
+      "subcategory": "default",
+      "value": "20",
+      "cssVariable": "",
+      "classes": [
+        "z-20"
+      ]
+    },
+    {
+      "name": "30",
+      "category": "z-index",
+      "subcategory": "default",
+      "value": "30",
+      "cssVariable": "",
+      "classes": [
+        "z-30"
+      ]
+    },
+    {
+      "name": "40",
+      "category": "z-index",
+      "subcategory": "default",
+      "value": "40",
+      "cssVariable": "",
+      "classes": [
+        "z-40"
+      ]
+    },
+    {
+      "name": "50",
+      "category": "z-index",
+      "subcategory": "default",
+      "value": "50",
+      "cssVariable": "",
+      "classes": [
+        "z-50"
+      ]
+    },
+    {
+      "name": "auto",
+      "category": "z-index",
+      "subcategory": "default",
+      "value": "auto",
+      "cssVariable": "",
+      "classes": [
+        "z-auto"
+      ]
+    },
+    {
+      "name": "75",
+      "category": "duration",
+      "subcategory": "default",
+      "value": "75ms",
+      "cssVariable": "",
+      "classes": [
+        "duration-75"
+      ]
+    },
+    {
+      "name": "100",
+      "category": "duration",
+      "subcategory": "default",
+      "value": "100ms",
+      "cssVariable": "",
+      "classes": [
+        "duration-100"
+      ]
+    },
+    {
+      "name": "150",
+      "category": "duration",
+      "subcategory": "default",
+      "value": "150ms",
+      "cssVariable": "",
+      "classes": [
+        "duration-150"
+      ]
+    },
+    {
+      "name": "200",
+      "category": "duration",
+      "subcategory": "default",
+      "value": "200ms",
+      "cssVariable": "",
+      "classes": [
+        "duration-200"
+      ]
+    },
+    {
+      "name": "300",
+      "category": "duration",
+      "subcategory": "default",
+      "value": "300ms",
+      "cssVariable": "",
+      "classes": [
+        "duration-300"
+      ]
+    },
+    {
+      "name": "500",
+      "category": "duration",
+      "subcategory": "default",
+      "value": "500ms",
+      "cssVariable": "",
+      "classes": [
+        "duration-500"
+      ]
+    },
+    {
+      "name": "700",
+      "category": "duration",
+      "subcategory": "default",
+      "value": "700ms",
+      "cssVariable": "",
+      "classes": [
+        "duration-700"
+      ]
+    },
+    {
+      "name": "1000",
+      "category": "duration",
+      "subcategory": "default",
+      "value": "1000ms",
+      "cssVariable": "",
+      "classes": [
+        "duration-1000"
+      ]
+    }
+  ]
+}
