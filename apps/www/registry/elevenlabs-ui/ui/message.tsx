@@ -1,4 +1,5 @@
 import type { ComponentProps, HTMLAttributes } from "react"
+import { useEffect, useRef, useState } from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
@@ -53,14 +54,61 @@ export const MessageContent = ({
   className,
   variant,
   ...props
-}: MessageContentProps) => (
-  <div
-    className={cn(messageContentVariants({ variant, className }))}
-    {...props}
-  >
-    {children}
-  </div>
-)
+}: MessageContentProps) => {
+  const ref = useRef<HTMLDivElement>(null)
+  const [glowColor, setGlowColor] = useState("#3b82f6")
+  const [glowIntensity, setGlowIntensity] = useState(18)
+  const [glowSpread, setGlowSpread] = useState(4)
+  const [glowSpeed, setGlowSpeed] = useState(2.5)
+  const [glowOpacityMin, setGlowOpacityMin] = useState(0.35)
+  const [glowOpacityMax, setGlowOpacityMax] = useState(0.85)
+
+  useEffect(() => {
+    const element = ref.current
+    if (!element) return
+    const handleUpdate = (e: CustomEvent) => {
+      const p = e.detail
+      if (p.glowColor !== undefined) setGlowColor(p.glowColor)
+      if (p.glowIntensity !== undefined) setGlowIntensity(p.glowIntensity)
+      if (p.glowSpread !== undefined) setGlowSpread(p.glowSpread)
+      if (p.glowSpeed !== undefined) setGlowSpeed(p.glowSpeed)
+      if (p.glowOpacityMin !== undefined) setGlowOpacityMin(p.glowOpacityMin)
+      if (p.glowOpacityMax !== undefined) setGlowOpacityMax(p.glowOpacityMax)
+    }
+    element.addEventListener("animation:update", handleUpdate as EventListener)
+    return () => element.removeEventListener("animation:update", handleUpdate as EventListener)
+  }, [])
+
+  const hexToRgb = (hex: string) => {
+    const r = parseInt(hex.slice(1, 3), 16)
+    const g = parseInt(hex.slice(3, 5), 16)
+    const b = parseInt(hex.slice(5, 7), 16)
+    return `${r}, ${g}, ${b}`
+  }
+
+  const rgb = hexToRgb(glowColor)
+  const shadowMin = `0 0 ${glowIntensity}px ${glowSpread}px rgba(${rgb}, ${glowOpacityMin})`
+  const shadowMax = `0 0 ${glowIntensity * 1.8}px ${glowSpread * 2}px rgba(${rgb}, ${glowOpacityMax})`
+  const animName = `blueGlowPulse-${glowColor.replace("#", "")}`
+
+  return (
+    <div
+      ref={ref}
+      data-config-id="MessageContent-div-0"
+      className={cn(messageContentVariants({ variant, className }))}
+      style={{ animation: `${animName} ${glowSpeed}s ease-in-out infinite` }}
+      {...props}
+    >
+      {children}
+      <style>{`
+        @keyframes ${animName} {
+          0%, 100% { box-shadow: ${shadowMin}; }
+          50% { box-shadow: ${shadowMax}; }
+        }
+      `}</style>
+    </div>
+  )
+}
 
 export type MessageAvatarProps = ComponentProps<typeof Avatar> & {
   src: string
@@ -78,3 +126,5 @@ export const MessageAvatar = ({
     <AvatarFallback>{name?.slice(0, 2) || "ME"}</AvatarFallback>
   </Avatar>
 )
+
+
