@@ -1,4 +1,5 @@
 import type { ComponentProps, HTMLAttributes } from "react"
+import { useEffect, useRef, useState } from "react"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
@@ -53,14 +54,61 @@ export const MessageContent = ({
   className,
   variant,
   ...props
-}: MessageContentProps) => (
-  <div
-    className={cn(messageContentVariants({ variant, className }))}
-    {...props}
-  >
-    {children}
-  </div>
-)
+}: MessageContentProps) => {
+  const ref = useRef<HTMLDivElement>(null)
+  const [glowColor, setGlowColor] = useState("#facc15")
+  const [glowIntensity, setGlowIntensity] = useState(18)
+  const [glowSpread, setGlowSpread] = useState(4)
+  const [glowOpacity, setGlowOpacity] = useState(0.7)
+  const [pulseSpeed, setPulseSpeed] = useState(2.4)
+  const [enablePulse, setEnablePulse] = useState(true)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const handler = (e: CustomEvent) => {
+      const p = e.detail
+      if (p.glowColor !== undefined) setGlowColor(p.glowColor)
+      if (p.glowIntensity !== undefined) setGlowIntensity(p.glowIntensity)
+      if (p.glowSpread !== undefined) setGlowSpread(p.glowSpread)
+      if (p.glowOpacity !== undefined) setGlowOpacity(p.glowOpacity)
+      if (p.pulseSpeed !== undefined) setPulseSpeed(p.pulseSpeed)
+      if (p.enablePulse !== undefined) setEnablePulse(p.enablePulse)
+    }
+    el.addEventListener("animation:update", handler as EventListener)
+    return () => el.removeEventListener("animation:update", handler as EventListener)
+  }, [])
+
+  const hex2rgba = (hex: string, alpha: number) => {
+    const r = parseInt(hex.slice(1, 3), 16)
+    const g = parseInt(hex.slice(3, 5), 16)
+    const b = parseInt(hex.slice(5, 7), 16)
+    return `rgba(${r},${g},${b},${alpha})`
+  }
+
+  const glowShadow = `0 0 ${glowIntensity}px ${glowSpread}px ${hex2rgba(glowColor, glowOpacity)}`
+
+  return (
+    <div
+      ref={ref}
+      data-config-id="MessageContent-div-0"
+      className={cn(messageContentVariants({ variant, className }), enablePulse ? "glow-pulse-anim" : "")}
+      style={{ boxShadow: glowShadow }}
+      {...props}
+    >
+      {children}
+      <style>{`
+        @keyframes glowPulse {
+          0%, 100% { box-shadow: 0 0 ${glowIntensity * 0.6}px ${glowSpread * 0.6}px ${hex2rgba(glowColor, glowOpacity * 0.5)}; }
+          50% { box-shadow: 0 0 ${glowIntensity * 1.5}px ${glowSpread * 1.5}px ${hex2rgba(glowColor, glowOpacity)}; }
+        }
+        .glow-pulse-anim {
+          animation: glowPulse ${pulseSpeed}s ease-in-out infinite;
+        }
+      `}</style>
+    </div>
+  )
+}
 
 export type MessageAvatarProps = ComponentProps<typeof Avatar> & {
   src: string
@@ -78,3 +126,5 @@ export const MessageAvatar = ({
     <AvatarFallback>{name?.slice(0, 2) || "ME"}</AvatarFallback>
   </Avatar>
 )
+
+
